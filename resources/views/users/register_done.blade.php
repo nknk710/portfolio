@@ -15,7 +15,7 @@
 
         <h1>アカウントを作成しました</h1>
         <h2>次はプロフィールを設定しましょう</h2>
-        <button class="custom-btn" onclick="location.href='/'">プロフィールの設定</button>
+        <button class="custom-btn" onclick="location.href='/users/profile_edit'">プロフィールの設定</button>
 
 
       </div>

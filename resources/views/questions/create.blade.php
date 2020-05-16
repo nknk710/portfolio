@@ -15,6 +15,7 @@
 
           <div class="question-content">
             <form action="#">
+              @csrf
 
               <div class="category">
                 <p>カテゴリ</p>

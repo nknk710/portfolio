@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+// use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,92 +13,44 @@ use App\Models\Relation;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-     //一覧表示
-    public function index(User $user)
-    {
-        $all_users = $user->getAllUsers(auth()->user()->id);
-
-        return view('users.index', [
-            'all_users'  => $all_users
-        ]);
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-     //新規プロフィール入力画面
-    public function create()
-    {
-        return view('users.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-     //新規プロフィール登録処理
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     //プロフィール画面
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     //プロフィール編集画面
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     //プロフィール編集処理
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-    
     public function add(){
         return view('users.register_done');
+    }
+    
+    public function index(){
+      $id = Auth::id();
+      $profile = User::find($id);
+      return view('users.profile', ['profile' => $profile]);
+    }
+    
+    public function edit(){
+        $id = Auth::id();
+        $profile = User::find($id);
+        return view('users.profile_edit',['profile' => $profile]);
+    }
+    
+    
+    public function update(Request $request){
+      // Validationをかける
+      $this->validate($request, User::$rules);
+      // News Modelからデータを取得する
+      $user = User::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $user_form = $request->all();
+      
+      if (isset($user_form['profile_image'])) {
+        $path = $request->file('profile_image')->store('public/image');
+        $user->profile_image = basename($path);
+        unset($user_form['profile_image']);
+      } elseif (isset($request->remove)) {
+        $user->profile_image = null;
+        unset($user_form['remove']);
+      }
+      unset($user_form['_token']);
+
+      // 該当するデータを上書きして保存する
+      $user->fill($user_form)->save();
+      
+      return view('users.profile_set');
     }
 }

@@ -63,5 +63,11 @@ class User extends Authenticatable
     {
         return $this->Where('id', '<>', $user_id)->paginate(5);
     }
+    
+    protected $guarded = array('id');
+
+    public static $rules = array(
+        'user_name' => 'required','max50'
+    );
 
 }

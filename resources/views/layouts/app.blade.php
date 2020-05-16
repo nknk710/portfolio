@@ -23,25 +23,21 @@
         <!--<script type="text/javascript" src="js/jQuery-3.3.1.min.js"></script>-->
         <!--<script type="text/javascript" src="js/front.js"></script>-->
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/css/drawer.min.css">
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/css/drawer.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/js/drawer.min.js"></script>
             <!-- Styles -->
         <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
 
 
-        <script>
-        /*global $*/
-            $(document).ready(function() {
-                $('.drawer').drawer();
-            });
-        </script>
+        
     </head>
 
 
     <body class="drawer drawer--left">
-
+    <div id="app">
         <header role="banner">
             <div class="haeder-navigation">
 
@@ -128,7 +124,18 @@
         <footer>
             <p class="copyright">my portfolio.</p>
         </footer>
-
+        </div>
     </body>
 </html>
-
+<script>
+  /*global Vue*/
+  document.addEventListener('DOMContentLoaded', function() {
+    window.app = new Vue();
+  });
+  /*global jQuery*/
+  jQuery(function($){
+    $(document).ready(function() {
+      $(".drawer").drawer();
+    });
+  });
+</script>
