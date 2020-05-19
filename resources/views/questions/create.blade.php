@@ -14,13 +14,13 @@
 
 
           <div class="question-content">
-            <form action="#">
+            <form method="POST" action="{{ action('QuestionController@create') }}">
               @csrf
 
               <div class="category">
                 <p>カテゴリ</p>
                 <label for="category">
-                  <select for="category" name="" id="" size="1" >
+                  <select for="category" name="category" id="" size="1" >
                       <option value="Java">Java</option>
                       <option value="C">C</option>
                       <option value=C++"">C++</option>
@@ -39,12 +39,12 @@
 
               <div class="question-title">
                 <p>タイトル</p>
-                <input type="text">
+                <input class="title" type="text" name="title" value="">
               </div>
   
               <div class="question">
                 <p>質問内容</p>
-                <textarea name="" id="" cols="30" rows="10" placeholder="(例)○○を実装するために下記のようなコードを書いて実行したのですが上手くいきません。"></textarea>
+                <textarea name="body" id="" cols="30" rows="10" placeholder="(例)○○を実装するために下記のようなコードを書いて実行したのですが上手くいきません。"></textarea>
               </div>
               <button class="post-btn">質問を投稿する</button>
               <!-- <button>質問内容を更新する</button> -->

@@ -54,8 +54,8 @@
                             <li><a class="drawer-menu-item" href="{{ route('contact') }}">お問い合わせ</a></li>
                         @else
                             <li><p class="drawer-brand">Menu</p></li>
-                            <li><a class="drawer-menu-item" href="{{ route('login') }}">マイページ</a></li>
-                            <li><a class="drawer-menu-item" href="{{ route('login') }}">質問を投稿</a></li>
+                            <li><a class="drawer-menu-item" href="{{ route('profile') }}">マイページ</a></li>
+                            <li><a class="drawer-menu-item" href="{{ route('question_create') }}">質問を投稿</a></li>
                             <li><a class="drawer-menu-item" href="{{ route('contact') }}">お問い合わせ</a></li>
                             <li><a class="drower-meni-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a></li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

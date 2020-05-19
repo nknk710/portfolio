@@ -1,0 +1,63 @@
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.title {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.main {
+  width: 1100px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto 40px auto;
+  padding: 120px 0 80px;
+}
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 30px;
+  padding: 20px 0 0;
+  border-bottom: 2px solid slategrey;
+
+}
+
+.follow-list{
+  width: 330px;
+  margin: 0 auto;
+}
+
+.profile_img {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  display: inline-block;
+}
+
+.follow-user {
+  display: flex;
+  border: 1px solid slategray;
+  margin: 10px;
+}
+
+.follow-user a {
+  height: 70px;
+  line-height: 70px;
+  display: inline;
+}

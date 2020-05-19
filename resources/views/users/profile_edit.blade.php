@@ -18,13 +18,13 @@
           <div class="title">
             <h1>プロフィール設定</h1>
           </div>
-          <form method="POST" action="{{ route('profile_set') }}">
+          <form method="POST" action="{{ route('profile_set') }}" enctype="multipart/form-data">
               @csrf
             <input id="" name="id" type="hidden" value="{{ $profile->id }}">  
               
             <div class="img">
-              @if ($profile->image_path)
-                  <img class="profile_img" src="{{ $profile->profile_image }}"><br>
+              @if ($profile->profile_image)
+                  <img class="profile_img" src="{{ secure_asset('storage/image/' . $profile->profile_image) }}"><br>
               @else
                   <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_img" alt=""><br>
               @endif

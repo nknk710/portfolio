@@ -15,7 +15,7 @@
           <div class="question-content">
             <div class="top-contents">
               <div class="question-head">
-               <h1>タイトル</h1>
+               <h1>{{ $question->title }}</h1>
               </div>
             </div>
 
@@ -26,15 +26,22 @@
               <div class="question">
                 <div class="quesrion-user user">
                   <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" alt="">
-                  <a href="#">タケシ</a>
+                  <a href="#">投稿者氏名を表示</a>
                 </div>  
                 <div class="qustion-body">
-                  <p>教えてください教えてください教えてください教えてください教えてください教えてください教えてください教えてください教えてください教えてください教えてください教えてください教えてください教えてください</p>
+                  <p>{{ $question->body }}</p>
   
                   <div class="post-day">
-                    <span class="solution">解決済み</span>
-                    <span class="question-category">php</span>
-                    <p>2020/01/01 0:00</p>
+                    <span class="solution">
+                      @if ( $question->best_answer === null )
+                        回答受付中
+                      @else
+                        解決済み
+                    </span>
+                    
+                    <span class="question-category">{{ $question->category }}</span>
+                    <span>投稿日時</span>
+                    <p>{{ $question->created_at }}</p>
                   </div>
                 </div>
   

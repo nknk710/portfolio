@@ -8,16 +8,20 @@ use Illuminate\Database\Eloquent\softDeletes;
 
 class Question extends Model
 {
-    use SoftDeletes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'title', 'category', 'body'
-    ];
+    
+    protected $guarded = array('id');
+
+    public static $rules = array(
+        'title' => 'required','max100',
+        'category' => 'required',
+        'body' => 'required',
+    );
     
     public function user()
     {
