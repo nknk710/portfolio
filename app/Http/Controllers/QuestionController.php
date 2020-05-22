@@ -25,18 +25,28 @@ class QuestionController extends Controller
     
     public function index(Request $request)
     {
-      $cond_title = $request->cond_title;
-      $category = $request->category;
-      if ($cond_title != '') {
-          // 検索されたら検索結果を取得する
-          $questions = Question::where('title', 'LIKE', '%$cond_title%')->get();
-          $questions = $questions->where('category', $category);
-      } else {
-          // それ以外はカテゴリーの一致した質問を取得する
-          $questions = Question::all();
-          $questions = $questions->where('category', $category);
-      }
-      return view('questions.index', ['questions' => $questions, 'cond_title' => $cond_title]);
+        $cond_title = $request->cond_title;
+        $category = $request->category;
+        if ($cond_title != '') {
+           // 検索されたら検索結果を取得する
+            $questions = Question::where('title', 'LIKE', '%$cond_title%')->get();
+            $questions = $questions->where('category', $category);
+        } else {
+           // それ以外はカテゴリーの一致した質問を取得する
+            $questions = Question::all();
+            $questions = $questions->where('category', $category);
+        }
+        return view('questions.index', ['questions' => $questions, 'cond_title' => $cond_title]);
+    }
+    public function sort(Request $request)
+    {
+        $questions = Question::find($request->id);
+        if($request->asc){
+            $questions = $questions->orderBy('created_at','asc');
+        }elseif($request->desc){
+            $questions = $questions->orderBy('created_at','desc');
+        }
+        return redirect('questions/index',['questions' => $questions]);
     }
     
     public function private_question(Request $request)
@@ -113,7 +123,20 @@ class QuestionController extends Controller
         return view('questions.delete_done');
     }
 
-    
-    
+    public function best_answer(Request $request)
+    {
+        // Question Modelからデータを取得する
+        $question = Question::find($request->question_id);
+        // 送信されてきたフォームデータを格納する
+        $best_answer = Answer::find($request->answer_id);
+        
+        \Debugbar::info($question_form);
+
+        // 該当するデータを上書きして保存する
+        $question->best_answer = $best_answer;
+        $question->save();
+      
+        return redirect('questions.question', ['best_answer' => $question]);
+    }
 
 }

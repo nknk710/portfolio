@@ -95,7 +95,15 @@
                       <a href="#">{{ $answer->user->user_name }}</a>
                     </div>
                     <div class="best-answer-set">
-                      <button class="set-btn">この回答をベストアンサーに設定</button>
+                      @if($question->best_answer === null)
+                        <form method="GET" action="{{ action('QuestionController@best_answer') }}">
+                          @csrf
+                          <input type="hidden" name="question_id" value="{{ $question->id }}">
+                          <input type="hidden" name="answer_id" value="{{ $answer->id }}">
+                          <button class="set-btn">この回答をベストアンサーに設定</button>
+                        </form>
+                      @endif
+                      
                     </div>
                   </div>
                 @endforeach

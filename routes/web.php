@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('questions/edit','QuestionController@edit');
     Route::post('questions/update','QuestionController@update');
     Route::get('questions/delete','QuestionController@delete');
+    Route::get('questions/best_answer','QuestionController@best_answer');
     
     Route::post('questions/answer','AnswersController@create');
 
@@ -49,6 +50,8 @@ Route::group(['middleware' => 'auth'], function() {
 Route::post('questions/question','QuestionController@show')->name('question');
 Route::get('questions/question','QuestionController@show');
 Route::get('questions/index','QuestionController@index');
+Route::get('questions/sort','QuestionController@sort');
+
 
 
 

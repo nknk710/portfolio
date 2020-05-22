@@ -49,11 +49,15 @@
             </div>
             <div class="sort">
               
+            <form action="{{ action('QuestionController@sort') }}" method="get">
+              @csrf  
+              <input type="hidden" name="question" value="{{ $questions }}">
               <select for="category" name="sort" id="" size="1" >
                 <option value="desc">質問日時の新しい順</option>
                 <option value="asc">質問日時の古い順</option>
               </select>
               <button class="sort-btn">並び替え</button>
+            </form>
             </div>
           </div>
 
