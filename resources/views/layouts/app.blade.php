@@ -73,9 +73,10 @@
                     </a>
                 </div>
                 <div class="search-box header-contents">
-                    <form action="#" method="get">
+                    <form action="{{ action('QuestionController@index') }}" method="get">
+                        @csrf
                         <label for="head-category">
-                            <select class="head-category" for="head-category" name="" id="" size="1" >
+                            <select class="head-category" for="head-category" name="category" size="1" >
                                 <option value="Java">Java</option>
                                 <option value="C">C</option>
                                 <option value=C++"">C++</option>
@@ -89,7 +90,7 @@
                                 <option value="その他">その他</option>
                             </select>
                         </label>
-                        <input type="text" class="header-box" placeholder="キーワードを入力"  style="width:300px;height:25px;">
+                        <input type="text" class="header-box" name="cond_title" placeholder="キーワードを入力"  style="width:300px;height:25px;">
                         <button class="header-btn" style="width:50px;height:29px;">検索</button>
                     </form>
                 </div>

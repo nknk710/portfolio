@@ -28,7 +28,7 @@
               @else
                   <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_img" alt=""><br>
               @endif
-              <label name="profile_image">画像設定</label>
+              <label name="profile_image" for="profile_image">画像設定</label>
               <input type="file" class="form-control-file" name="profile_image">
             </div>
   

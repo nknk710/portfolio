@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Question;
+use App\Models\Answer;
 
 class User extends Authenticatable
 {
@@ -49,13 +51,13 @@ class User extends Authenticatable
     
     public function questions()
     {
-      return $this->hasMany('App\Question');
+      return $this->hasMany('App\Models\Question');
 
     }
     
     public function bookmarks()
     {
-      return $this->hasMany('App\Bookmark');
+      return $this->hasMany('App\Models\Bookmark');
 
     }
     

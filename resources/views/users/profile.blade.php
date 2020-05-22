@@ -60,8 +60,7 @@
 
 
           <div class="question">
-            <a href="#">質問一覧</a>
-
+              <a href="{{ action('QuestionController@private_question', ['id' => $profile->id]) }}">質問一覧</a>
           </div>
   
   

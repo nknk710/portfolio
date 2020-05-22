@@ -29,31 +29,59 @@ Qyou(エンジニアのためのQ＆Aサイト)
             <div class="main-contents-left">
                 <div class="serch-box">
                     <h1>質問を検索</h1>
-                    <form action="" method="post">
+                    <form action="{{ action('QuestionController@index') }}" method="get">
+                        @csrf
                         <label for="category">
-                            <select class="category" for="category" name="" id="" size="1" >
-                                <option>Java</option>
-                                <option>C</option>
-                                <option>C++</option>
-                                <option>C#</option>
-                                <option>Python</option>
-                                <option>JavaScript</option>
-                                <option>PHP</option>
-                                <option>Ruby</option>
-                                <option>HTML,CSS</option>
-                                <option>Swift</option>
-                                <option>その他</option>
+                            <select class="category" for="category" name="category" id="" size="1" >
+                                <option value="Java">Java</option>
+                                <option value="C">C</option>
+                                <option value=C++"">C++</option>
+                                <option valuename="C#">C#</option>
+                                <option value="Python">Python</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="PHP">PHP</option>
+                                <option value="Ruby">Ruby</option>
+                                <option value="HTML,CSS">HTML,CSS</option>
+                                <option value="Swift">Swift</option>
+                                <option value="その他">その他</option>
                             </select>
                         </label>
-                        <input type="text" class="box" placeholder="キーワードを入力" style="width:300px;height:25px;">
+                        <input type="text" class="box" name="cond_title" placeholder="キーワードを入力"  style="width:300px;height:25px;">
                         <button style="width:50px;height:30px;border-radius:2px;">検索</button>
                     </form>
-            
+
                 </div>
             </div>
 
             <div class="main-contents-left">
-                <h1 class="">新しく投稿された質問</h2>
+                <h1 class="">新しく投稿された質問</h1>
+                @foreach($questions as $question)
+        
+                    <div class="new-question">
+                      <div class="type">
+                        <span class="solution">
+                        @if ( $question->best_answer === null )
+                          回答受付中
+                        @else
+                          解決済み
+                        @endif
+                        </span>
+                        <span class="question-category">{{ $question->category }}</span>
+                      </div>
+                      <div class="question-title">
+                          <a href="{{ action('QuestionController@show', ['id' => $question->id]) }}">{{ $question->title }}</a>
+                      </div>        
+                    </div>         
+                @endforeach
+                <div class="new-question">
+                    <div class="type">
+                      <span class="solution">解決済み</span>
+                      <span class="question-category">php</span>
+                    </div>
+                    <div class="question-title">
+                      <a href="#">コントローラーについて教えてください</a>
+                    </div>
+                </div>
             </div>
 
             <div class="main-contents-left">

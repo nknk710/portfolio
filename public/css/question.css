@@ -28,7 +28,11 @@ h1 {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 0;
-  padding-top: 20px;
+  padding-top: 60px;
+}
+
+.question-head {
+  padding-top: 100px;
 }
 
 .profile_img {
@@ -60,10 +64,6 @@ span {
   padding: 30px;
 }
 
-.bookmark {
-  margin: 20px 0 0 100px;
-}
-
 .question-category {
   background-color: rgb(143, 179, 212);
   border: 1px solid rgb(65, 62, 62);
@@ -91,12 +91,7 @@ textarea {
   text-align: right;
 }
 
-.delete {
-  background-color: rgb(238, 158, 158);
-  margin-left: 20px;
-}
-
-.post {
+.post-btn {
   display: block;
   margin: 10px auto;
   width: 100px;
@@ -141,3 +136,17 @@ textarea {
   text-align: right;
 }
 
+.bookmark-btn {
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.delete-btn {
+  background-color: rgb(238, 158, 158);
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.created_at {
+  display: inline-block;
+}

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+use App\Models\User;
+use App\Models\Answer;
 
 
 class Question extends Model
@@ -25,12 +27,12 @@ class Question extends Model
     
     public function user()
     {
-        return $this->belongsTo('User::class');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function answers()
     {
-        return $this->hasMany('Answer::class');
+        return $this->hasMany('App\Models\Answer');
     }
 
 

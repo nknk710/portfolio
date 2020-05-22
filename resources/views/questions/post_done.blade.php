@@ -14,9 +14,9 @@
       <div class="container">
 
         <h1>質問の投稿が完了しました</h1>
-        <form method="GET" action="{{ action('QuestionController@show') }}">
+        <form method="POST" action="{{ action('QuestionController@show') }}">
           @csrf
-          <input id="" name="id" type="hidden" value="{{ $question }}">
+          <input name="id" type="hidden" value="{{ $question->id }}">
           <button class="display-btn">投稿した質問を見る</button>
         </form>
       </div>
