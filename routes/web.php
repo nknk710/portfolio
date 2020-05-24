@@ -54,6 +54,8 @@ Route::group(['middleware' => 'auth'], function() {
 Route::post('questions/question','QuestionController@show')->name('question');
 Route::get('questions/question','QuestionController@show')->name('show_question');
 Route::get('questions/index','QuestionController@index');
+Route::get('questions/new_question','QuestionController@new_question');
+
 
 
 

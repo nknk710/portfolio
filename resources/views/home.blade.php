@@ -56,29 +56,34 @@ Qyou(エンジニアのためのQ＆Aサイト)
             <div class="main-contents-left">
                 <h1 class="">新しく投稿された質問</h1>
                 @foreach($questions as $question)
-        
                     <div class="new-question">
                       <div class="type">
-                        <span class="solution">
                         @if ( $question->best_answer === null )
-                          回答受付中
+                          <span class="unsolved">回答受付中</span>
                         @else
-                          解決済み
+                          <span class="solution">解決済み</span>
                         @endif
-                        </span>
                         <span class="question-category">{{ $question->category }}</span>
                       </div>
                       <div class="question-title">
                           <a href="{{ action('QuestionController@show', ['id' => $question->id]) }}">{{ $question->title }}</a>
                       </div>        
-                    </div>         
+                    </div>
+                    @if($loop->iteration === 5)
+                        @break
+                    @endif
                 @endforeach
+                <div class="more">
+                    <a href="{{ action('QuestionController@new_question') }}">もっと見る</a>
+                </div>
                 
             </div>
-
-            <div class="main-contents-left">
-                <h1 class="">フォロワーの質問</h1>
-            </div>
+            @guest
+            @else
+                <div class="main-contents-left">
+                    <h1 class="">フォロワーの質問</h1>
+                </div>
+            @endguest
 
             <div class="main-contents-left">
                 <h1 class="">空き</h1>

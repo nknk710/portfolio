@@ -67,13 +67,11 @@
             @foreach($questions as $question)
               <div class="search-question">
                 <div class="type">
-                  <span class="solution">
                   @if ( $question->best_answer === null )
-                    回答受付中
-                  @else
-                    解決済み
-                  @endif
-                  </span>
+                      <span class="unsolved">回答受付中</span>
+                    @else
+                      <span class="solution">解決済み</span>
+                    @endif
                   <span class="question-category">{{ $question->category }}</span>
                 </div>
                 <div class="question-title">
@@ -83,7 +81,7 @@
             @endforeach
 
           </div>
-          @if(isset($questions))
+          @if(count($questions)<=0)
               <p class="null">検索結果と一致する質問がありませんでした</p>
           @endif
           {{ $questions->links('pagination.default') }}

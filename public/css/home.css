@@ -132,6 +132,16 @@ h1 {
   padding: 1px;
 }
 
+.unsolved {
+  color: white;
+  font-size: 0.7rem;
+  border: 1px solid rgb(65, 62, 62);
+  background-color: green;
+  border-radius: 3px;
+  padding: 1px;
+}
+
+
 .question-category {
   font-size: 0.7rem;
   border: 1px solid rgb(65, 62, 62);
@@ -143,4 +153,8 @@ h1 {
 
 .question-title {
   margin-left: 10px;
+}
+
+.more {
+  text-align: right;
 }

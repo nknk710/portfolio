@@ -31,39 +31,36 @@
                     <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
                   @endif
                   
-                  <form action="{{ route('profile') }}" method="GET">
-                    @csrf
-                    <input name="id" type="hidden" value="{{ $question->user_id }}">
-                    <a href="{{ route('profile') }}">{{ $question->user->user_name }}</a>
-                  </form>
-                  
+                    <a href="{{ action('UsersController@index', ['id' => $question->user_id]) }}">{{ $question->user->user_name }}</a>
+                    
+
                 </div>  
                 <div class="qustion-body">
                   <p>{{ $question->body }}</p>
   
                   <div class="post-day">
-                    <span class="solution">
                       @if ( $question->best_answer === null )
-                        回答受付中
+                        <span class="unsolved">回答受付中</span>
                       @else
-                        解決済み
+                        <span class="solution">解決済み</span>
                       @endif
-                    </span>
                     
                     <span class="question-category">{{ $question->category }}</span><br>
-                    <span>投稿日時</span>
-                    <p class="created_at">{{ $question->created_at->format('Y/m/d') }}</p>
+                    <span class="created_at">投稿日時</span>
+                    <p class="created_at">{{ $question->created_at->format('Y/m/d H:i') }}</p>
                   </div>
                 </div>
   
               </div>
               
               @if(Auth::id() === $question->user_id || Auth::id() === 1)
-                <form method="POST" action="{{ action('QuestionController@edit') }}">
-                  @csrf
-                  <input name="id" type="hidden" value="{{ $question->id }}">
-                  <button class="bookmark-btn">質問を編集する</button>
-                </form>
+                @if($question->best_answer === null)
+                  <form method="POST" action="{{ action('QuestionController@edit') }}">
+                    @csrf
+                    <input name="id" type="hidden" value="{{ $question->id }}">
+                    <button class="bookmark-btn">質問を編集する</button>
+                  </form>
+                @endif
                 <form method="GET" action="{{ action('QuestionController@delete') }}">
                   @csrf
                   <input name="id" type="hidden" value="{{ $question->id }}">
@@ -77,16 +74,18 @@
                 @endguest
               @endif
               
-              @if(Auth::id() !== $question->user_id || Auth::id() === 1)
-                <div class="answer-post">
-                  <h3>回答投稿</h3>
-                  <form action="{{ action('AnswersController@create') }}" method="POST">
-                      @csrf
-                      <textarea name="answer" id="" cols="30" rows="10"></textarea>
-                    <input name="id" type="hidden" value="{{ $question->id }}">
-                    <button class="post-btn">回答を投稿する</button>
-                  </form>
-                </div>
+              @if($question->best_answer === null)
+                @if(Auth::id() !== $question->user_id || Auth::id() === 1)
+                  <div class="answer-post">
+                    <h3>回答投稿</h3>
+                    <form action="{{ action('AnswersController@create') }}" method="POST">
+                        @csrf
+                        <textarea name="answer" id="" cols="30" rows="10"></textarea>
+                      <input name="id" type="hidden" value="{{ $question->id }}">
+                      <button class="post-btn">回答を投稿する</button>
+                    </form>
+                  </div>
+                @endif
               @endif
 
               <div class="answer-list">
@@ -95,6 +94,7 @@
                 </div>
                 
                 @foreach($answers as $answer)
+                  @if($answer->id === $question->best_answer)
                   <div class="answer">
 
                     <div class="answer-content">
@@ -109,9 +109,40 @@
                       @else
                         <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
                       @endif
-                      <a href="#">{{ $answer->user->user_name }}</a>
+                      <a href="{{ action('UsersController@index', ['id' => $answer->user_id]) }}">{{ $answer->user->user_name }}</a>
                     </div>
-                    
+                    <div class="date">
+                      <span class="created_at">投稿日時</span>
+                      <p class="created_at">{{ $answer->created_at->format('Y/m/d H:i') }}</p>
+                    </div>
+
+                  </div>
+                  @endif
+                @endforeach
+                
+                @foreach($answers as $answer)
+                  @if($answer->id !== $question->best_answer)
+                  <div class="answer">
+
+                    <div class="answer-content">
+                      @if($question->best_answer === $answer->id)
+                        <span class="best-answer">ベストアンサー</span>
+                      @endif
+                       <p>{{ $answer->answer }}</p>
+                    </div>
+                    <div class="answer-user user">
+                      @if ($answer->user->profile_image !== null)
+                        <img class="profile_img" src="{{ secure_asset('storage/image/' . $answer->user->profile_image) }}">
+                      @else
+                        <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
+                      @endif
+                      <a href="{{ action('UsersController@index', ['id' => $answer->user_id]) }}">{{ $answer->user->user_name }}</a>
+                    </div>
+                    <div class="date">
+                      <span class="created_at">投稿日時</span>
+                      <p class="created_at">{{ $answer->created_at->format('Y/m/d H:i') }}</p>
+                    </div>
+
                     @if($question->best_answer === null && Auth::id() === $question->user_id)
                       <div class="best-answer-set">
                         <form method="GET" action="{{ action('AnswersController@add') }}">
@@ -133,6 +164,7 @@
                     @endif
                       
                   </div>
+                  @endif
                 @endforeach
                 @if($answers === null)
                   <p>現在この質問に対する回答はありません</p>

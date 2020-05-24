@@ -19,8 +19,14 @@ class QuestionController extends Controller
     
     public function home()
     {
-        $questions = Question::all();
+        $questions = Question::orderBy('created_at','desc')->get();
         return view('home', ['questions' => $questions]);
+    }
+    
+    public function new_question()
+    {
+        $questions = Question::orderBy('created_at','desc')->paginate(10);
+        return view('questions.new_question', ['questions' => $questions]);
     }
     
     public function index(Request $request)
@@ -30,9 +36,9 @@ class QuestionController extends Controller
         $category = $request->category;
         
         if ($request->sort){
-            if ($request->sort == asc) {
+            if ($request->sort == 'asc') {
                 $questions = Question::where('category', $category)->where('title', 'LIKE', '%'.$cond_title.'%')->orderBy('created_at','asc')->paginate(10);
-            } elseif ($request->sort == desc) {
+            } elseif ($request->sort == 'desc') {
                 $questions = Question::where('category', $category)->orderBy('created_at','desc')->paginate(10);
             }
         }else{
@@ -93,7 +99,8 @@ class QuestionController extends Controller
     
     public function show(Request $request){
         $question = Question::find($request->id);
-        $answers = Answer::where('question_id', $request->id)->get();
+        $answers = Answer::orderBy('created_at','desc')->where('question_id', $request->id)->get();
+        $best_answer = 
         \Debugbar::info($question);
         return view('questions.question',['question' => $question, 'answers' => $answers]);
     }

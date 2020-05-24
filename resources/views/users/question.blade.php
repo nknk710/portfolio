@@ -23,13 +23,11 @@
         
             <div class="search-question">
               <div class="type">
-                <span class="solution">
                     @if ( $question->best_answer === null )
-                      回答受付中
+                      <span class="unsolved">回答受付中</span>
                     @else
-                      解決済み
+                      <span class="solution">解決済み</span>
                     @endif
-                </span>
                 <span class="question-category">{{ $question->category }}</span>
               </div>
               <div class="question-title">
@@ -41,7 +39,7 @@
       
       </div>
       
-      @if(isset($questions))
+      @if(count($questions)<=0)
         <p class="null">投稿された質問がありません</p>
       @endif
       <div class="paginate">
