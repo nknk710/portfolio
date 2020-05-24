@@ -150,3 +150,7 @@ textarea {
 .created_at {
   display: inline-block;
 }
+
+.answer-delete-btn {
+  background-color: rgb(238, 158, 158);
+}

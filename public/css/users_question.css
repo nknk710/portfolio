@@ -21,6 +21,7 @@ body {
 .container {
   width: 1000px;
   margin: 0 auto 40px auto;
+  padding-bottom: 70px
 }
 
 .title {
@@ -77,3 +78,9 @@ h1 {
   margin-left: 10px;
 }
 
+.null {
+  color: red;
+  width: 210px;
+  margin: 0 auto;
+  border-bottom: 1px solid red;
+}

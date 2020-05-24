@@ -37,9 +37,17 @@
               </div>        
             </div>         
         @endforeach
+        
       
       </div>
-
+      
+      @if(isset($questions))
+        <p class="null">投稿された質問がありません</p>
+      @endif
+      <div class="paginate">
+        {{ $questions->links('pagination.default') }}
+      </div>
+      
     </div>
 
       

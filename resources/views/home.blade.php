@@ -73,15 +73,7 @@ Qyou(エンジニアのためのQ＆Aサイト)
                       </div>        
                     </div>         
                 @endforeach
-                <div class="new-question">
-                    <div class="type">
-                      <span class="solution">解決済み</span>
-                      <span class="question-category">php</span>
-                    </div>
-                    <div class="question-title">
-                      <a href="#">コントローラーについて教えてください</a>
-                    </div>
-                </div>
+                
             </div>
 
             <div class="main-contents-left">

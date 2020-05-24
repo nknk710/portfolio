@@ -25,13 +25,17 @@
 
               <div class="question">
                 <div class="quesrion-user user">
-                  @if ($question->profile_image)
-                    <img class="profile_img" src="{{ secure_asset('storage/image/' . $profile->profile_image) }}">
+                  @if ($question->user->profile_image !== null)
+                    <img class="profile_img" src="{{ secure_asset('storage/image/' . $question->user->profile_image) }}">
                   @else
                     <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
                   @endif
                   
-                  <a href="#">{{ $question->user->user_name }}</a>
+                  <form action="{{ route('profile') }}" method="GET">
+                    @csrf
+                    <input name="id" type="hidden" value="{{ $question->user_id }}">
+                    <a href="{{ route('profile') }}">{{ $question->user->user_name }}</a>
+                  </form>
                   
                 </div>  
                 <div class="qustion-body">
@@ -53,8 +57,8 @@
                 </div>
   
               </div>
-              <!-- <button class="bookmark">この質問をブックマークに追加</button>
-                <button class="bookmark">この質問をブックマークから削除</button> -->
+              
+              @if(Auth::id() === $question->user_id || Auth::id() === 1)
                 <form method="POST" action="{{ action('QuestionController@edit') }}">
                   @csrf
                   <input name="id" type="hidden" value="{{ $question->id }}">
@@ -65,16 +69,25 @@
                   <input name="id" type="hidden" value="{{ $question->id }}">
                   <button class="delete-btn">質問を削除する</button>
                 </form>
+              @else
+                @guest
+                @else
+                  <button class="bookmark">この質問をブックマークに追加</button>
+                  <button class="bookmark">この質問をブックマークから削除</button>
+                @endguest
+              @endif
               
-              <div class="answer-post">
-                <h3>回答投稿</h3>
-                <form action="{{ action('AnswersController@create') }}" method="POST">
-                    @csrf
-                  <textarea name="answer" id="" cols="30" rows="10"></textarea>
-                  <input name="id" type="hidden" value="{{ $question->id }}">
-                  <button class="post-btn">回答を投稿する</button>
-                </form>
-              </div>
+              @if(Auth::id() !== $question->user_id || Auth::id() === 1)
+                <div class="answer-post">
+                  <h3>回答投稿</h3>
+                  <form action="{{ action('AnswersController@create') }}" method="POST">
+                      @csrf
+                      <textarea name="answer" id="" cols="30" rows="10"></textarea>
+                    <input name="id" type="hidden" value="{{ $question->id }}">
+                    <button class="post-btn">回答を投稿する</button>
+                  </form>
+                </div>
+              @endif
 
               <div class="answer-list">
                 <div class="answer-head">
@@ -85,38 +98,57 @@
                   <div class="answer">
 
                     <div class="answer-content">
-                      @if($question->best_answer !== null)
+                      @if($question->best_answer === $answer->id)
                         <span class="best-answer">ベストアンサー</span>
                       @endif
                        <p>{{ $answer->answer }}</p>
                     </div>
                     <div class="answer-user user">
-                      <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" alt="">
+                      @if ($answer->user->profile_image !== null)
+                        <img class="profile_img" src="{{ secure_asset('storage/image/' . $answer->user->profile_image) }}">
+                      @else
+                        <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
+                      @endif
                       <a href="#">{{ $answer->user->user_name }}</a>
                     </div>
-                    <div class="best-answer-set">
-                      @if($question->best_answer === null)
-                        <form method="GET" action="{{ action('QuestionController@best_answer') }}">
+                    
+                    @if($question->best_answer === null && Auth::id() === $question->user_id)
+                      <div class="best-answer-set">
+                        <form method="GET" action="{{ action('AnswersController@add') }}">
                           @csrf
-                          <input type="hidden" name="question_id" value="{{ $question->id }}">
-                          <input type="hidden" name="answer_id" value="{{ $answer->id }}">
+                          <input name="id" type="hidden" value="{{ $answer->id }}">
                           <button class="set-btn">この回答をベストアンサーに設定</button>
                         </form>
-                      @endif
+                      </div>
+                    @endif
+
+                    @if(Auth::id() === $answer->user->id && $question->best_answer !== $answer->id)
+                      <div class="answer-delete">
+                        <form method="GET" action="{{ action('AnswersController@delete') }}">
+                          @csrf
+                          <input name="id" type="hidden" value="{{ $answer->id }}">
+                          <button class="answer-delete-btn">回答を削除する</button>
+                        </form>
+                      </div>
+                    @endif
                       
-                    </div>
                   </div>
                 @endforeach
-
+                @if($answers === null)
+                  <p>現在この質問に対する回答はありません</p>
+                @endif
                 
 
               </div>
 
             </div>
+            
           </div>
+          
   
         </div>
   
 
 
 @endsection
+

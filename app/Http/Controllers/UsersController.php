@@ -17,7 +17,15 @@ class UsersController extends Controller
         return view('users.register_done');
     }
     
-    public function index(){
+    public function index(Request $request){
+      \Debugbar::info($request);
+      $profile = User::find($request->id);
+      
+      return view('users.profile', ['profile' => $profile]);
+    }
+    
+    public function my_profile()
+    {
       $id = Auth::id();
       $profile = User::find($id);
       return view('users.profile', ['profile' => $profile]);
@@ -28,7 +36,6 @@ class UsersController extends Controller
         $profile = User::find($id);
         return view('users.profile_edit',['profile' => $profile]);
     }
-    
     
     public function update(Request $request){
       // Validationをかける
@@ -51,7 +58,7 @@ class UsersController extends Controller
       // 該当するデータを上書きして保存する
       $user->fill($user_form)->save();
       
-      return view('users.profile_set');
+      return view('users.profile_set', ['user' => $user]);
     }
     
     

@@ -18,6 +18,7 @@ class CreateAnswersTable extends Migration
             $table->unsignedInteger('user_id')->comment('ユーザID'); //usersテーブルのidと関連付け
             $table->unsignedInteger('question_id')->comment('質問ID'); //questionsテーブルのidと関連付け
             $table->string('answer')->comment('回答内容');
+            $table->boolean('best_answer')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

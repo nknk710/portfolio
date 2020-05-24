@@ -13,8 +13,10 @@
     <div class="container">
 
       <h1>プロフィールの設定が完了しました</h1>
-
-      <button class="show-btn" onclick="location.href='/users/profile'">マイプロフィールを見る</button>
+      <form action="{{ route('profile') }}" method="GET">
+        <input name="id" type="hidden" value="{{ $user->id }}">
+        <button class="show-btn" onclick="location.href='/users/profile'">マイプロフィールを見る</button>
+      </form>
       
       <button class="home-btn" onclick="location.href='/'">トップに戻る</button>
 

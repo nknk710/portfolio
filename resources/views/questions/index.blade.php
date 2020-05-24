@@ -49,10 +49,10 @@
             </div>
             <div class="sort">
               
-            <form action="{{ action('QuestionController@sort') }}" method="get">
+            <form action="{{ action('QuestionController@index') }}" method="get">
               @csrf  
               <input type="hidden" name="question" value="{{ $questions }}">
-              <select for="category" name="sort" id="" size="1" >
+              <select for="category" name="sort" size="1" >
                 <option value="desc">質問日時の新しい順</option>
                 <option value="asc">質問日時の古い順</option>
               </select>
@@ -64,26 +64,29 @@
   
           <div class="question-list">
               
-              @foreach($questions as $question)
-        
-                    <div class="search-question">
-                      <div class="type">
-                        <span class="solution">
-                        @if ( $question->best_answer === null )
-                          回答受付中
-                        @else
-                          解決済み
-                        @endif
-                        </span>
-                        <span class="question-category">{{ $question->category }}</span>
-                      </div>
-                      <div class="question-title">
-                          <a href="{{ action('QuestionController@show', ['id' => $question->id]) }}">{{ $question->title }}</a>
-                      </div>        
-                    </div>         
-                @endforeach
-  
+            @foreach($questions as $question)
+              <div class="search-question">
+                <div class="type">
+                  <span class="solution">
+                  @if ( $question->best_answer === null )
+                    回答受付中
+                  @else
+                    解決済み
+                  @endif
+                  </span>
+                  <span class="question-category">{{ $question->category }}</span>
+                </div>
+                <div class="question-title">
+                  <a href="{{ action('QuestionController@show', ['id' => $question->id]) }}">{{ $question->title }}</a>
+                </div>        
+              </div>         
+            @endforeach
+
           </div>
+          @if(isset($questions))
+              <p class="null">検索結果と一致する質問がありませんでした</p>
+          @endif
+          {{ $questions->links('pagination.default') }}
   
   
         </div>

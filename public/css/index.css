@@ -125,3 +125,10 @@ input {
   border-radius: 3px;
   background-color: rgb(164, 238, 248);
 }
+
+.null {
+  color: red;
+  width: 320px;
+  margin: 0 auto;
+  border-bottom: 1px solid red;
+}

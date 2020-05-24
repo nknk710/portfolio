@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('users/profile_edit','UsersController@edit')->name('edit');
     Route::post('users/profile_set','UsersController@update')->name('profile_set');
     Route::get('users/profile','UsersController@index')->name('profile');
+    Route::post('users/profile','UsersController@index')->name('profile');
+    Route::get('users/my_profile','UsersController@my_profile')->name('my_profile');
     
     Route::get('users/private_question','QuestionController@private_question')->name('private_question');
     
@@ -42,15 +44,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('questions/best_answer','QuestionController@best_answer');
     
     Route::post('questions/answer','AnswersController@create');
-
+    
+    Route::get('answers/add','AnswersController@add');
+    Route::get('answers/delete','AnswersController@delete');
 
 });
 
 // ゲスト状態
 Route::post('questions/question','QuestionController@show')->name('question');
-Route::get('questions/question','QuestionController@show');
+Route::get('questions/question','QuestionController@show')->name('show_question');
 Route::get('questions/index','QuestionController@index');
-Route::get('questions/sort','QuestionController@sort');
 
 
 

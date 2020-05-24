@@ -25,34 +25,46 @@ class QuestionController extends Controller
     
     public function index(Request $request)
     {
+        \Debugbar::info($request);
         $cond_title = $request->cond_title;
         $category = $request->category;
-        if ($cond_title != '') {
-           // 検索されたら検索結果を取得する
-            $questions = Question::where('title', 'LIKE', '%$cond_title%')->get();
-            $questions = $questions->where('category', $category);
-        } else {
-           // それ以外はカテゴリーの一致した質問を取得する
-            $questions = Question::all();
-            $questions = $questions->where('category', $category);
+        
+        if ($request->sort){
+            if ($request->sort == asc) {
+                $questions = Question::where('category', $category)->where('title', 'LIKE', '%'.$cond_title.'%')->orderBy('created_at','asc')->paginate(10);
+            } elseif ($request->sort == desc) {
+                $questions = Question::where('category', $category)->orderBy('created_at','desc')->paginate(10);
+            }
+        }else{
+            if ($cond_title != '') {
+                // 検索されたら検索結果を取得する
+                $questions = Question::where('category', $category)->where('title', 'LIKE', '%'.$cond_title.'%')->paginate(10);
+            } else {
+            // それ以外はカテゴリーの一致した質問を取得する
+                $questions = Question::where('category', $category)->paginate(10);
+            }
         }
+        
+        
         return view('questions.index', ['questions' => $questions, 'cond_title' => $cond_title]);
     }
+    
     public function sort(Request $request)
     {
+        
         $questions = Question::find($request->id);
         if($request->asc){
-            $questions = $questions->orderBy('created_at','asc');
+            $questions = $request->orderBy('created_at','asc');
         }elseif($request->desc){
-            $questions = $questions->orderBy('created_at','desc');
+            $questions = $request->orderBy('created_at','desc');
         }
-        return redirect('questions/index',['questions' => $questions]);
+        return view('questions.index',['questions' => $questions]);
     }
     
     public function private_question(Request $request)
     {
         $id = $request->id;
-        $questions = Question::where('user_id', $id)->get();
+        $questions = Question::where('user_id', $id)->paginate(3);
         return view('users.question', ['questions' => $questions]);
     }
     
@@ -82,8 +94,8 @@ class QuestionController extends Controller
     public function show(Request $request){
         $question = Question::find($request->id);
         $answers = Answer::where('question_id', $request->id)->get();
-        \Debugbar::info($answers);
-        return view('questions/question',['question' => $question, 'answers' => $answers]);
+        \Debugbar::info($question);
+        return view('questions.question',['question' => $question, 'answers' => $answers]);
     }
     
     public function edit(Request $request)
@@ -116,7 +128,7 @@ class QuestionController extends Controller
     
     public function delete(Request $request)
     {
-        // 該当するNews Modelを取得
+        // 該当するQuestion Modelを取得
         $question = Question::find($request->id);
         // 削除する
         $question->delete();
@@ -136,7 +148,7 @@ class QuestionController extends Controller
         $question->best_answer = $best_answer;
         $question->save();
       
-        return redirect('questions.question', ['best_answer' => $question]);
+        return redirect('questions/question', ['best_answer' => $question]);
     }
 
 }

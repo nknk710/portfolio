@@ -86,6 +86,13 @@ header {
   content: " ";
 }
 
+.pagination {
+  text-align: center;
+}
+
+.pagination li {
+  display: inline-block;
+}
 
 .copyright {
   color: #777;

@@ -15,8 +15,9 @@
         <div class="profile">
           <div class="title">
             <h1>プロフィール</h1>
-            <!-- 他人目線時は非表示 -->
-            <a href="{{ route('edit') }}">プロフィールを変更</a> 
+            @if(Auth::id() === $profile->id)
+              <a href="{{ route('edit') }}">プロフィールを変更</a> 
+            @endif
           </div>
 
           <div class="img">
@@ -62,7 +63,12 @@
           <div class="question">
               <a href="{{ action('QuestionController@private_question', ['id' => $profile->id]) }}">質問一覧</a>
           </div>
-  
+          
+          @if(Auth::id() === $profile->id)
+            <div class="bookmark">
+              <a href="{{ route('edit') }}">ブックマークした質問一覧</a> 
+            </div>
+          @endif
   
         </div>
       </div>
