@@ -29,12 +29,7 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::get('users/private_question','QuestionController@private_question')->name('private_question');
     
-    
-    
-    // フォロー/フォロー解除を追加
-    Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
-    Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
-    
+
     Route::get('questions/create','QuestionController@add')->name('question_create');
     Route::get('questions/post_done','QuestionController@update');
     Route::post('questions/post_done','QuestionController@create');
@@ -47,6 +42,10 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::get('answers/add','AnswersController@add');
     Route::get('answers/delete','AnswersController@delete');
+    
+    Route::post('bookmarks/add','BookmarkController@add');
+    Route::get('users/bookmark','BookmarkController@index');
+    Route::get('users/delete','BookmarkController@delete');
 
 });
 

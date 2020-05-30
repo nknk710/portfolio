@@ -23,17 +23,17 @@
                 @csrf
                 <label for="category">
                   <select class="category" for="category" name="category" id="" size="1" >
-                    <option value="Java">Java</option>
-                    <option value="C">C</option>
-                    <option value=C++"">C++</option>
-                    <option valuename="C#">C#</option>
-                    <option value="Python">Python</option>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="PHP">PHP</option>
-                    <option value="Ruby">Ruby</option>
-                    <option value="HTML,CSS">HTML,CSS</option>
-                    <option value="Swift">Swift</option>
-                    <option value="その他">その他</option>
+                    <option value="Java" {{ $category == "Java" ? "selected" : "" }}>Java</option>
+                    <option value="C" {{ $category == "C" ? "selected" : "" }}>C</option>
+                    <option value="C++" {{ $category == "C++" ? "selected" : "" }}>C++</option>
+                    <option value="C#" {{ $category == "C#" ? "selected" : "" }}>C#</option>
+                    <option value="Python" {{ $category == "Python" ? "selected" : "" }}>Python</option>
+                    <option value="JavaScript" {{ $category == "JavaScript" ? "selected" : "" }}>JavaScript</option>
+                    <option value="PHP" {{ $category == "PHP" ? "selected" : "" }}>PHP</option>
+                    <option value="Ruby" {{ $category == "Ruby" ? "selected" : "" }}>Ruby</option>
+                    <option value="HTML,CSS" {{ $category == "HTML,CSS" ? "selected" : "" }}>HTML,CSS</option>
+                    <option value="Swift" {{ $category == "Swift" ? "selected" : "" }}>Swift</option>
+                    <option value="その他" {{ $category == "その他" ? "selected" : "" }}>その他</option>
                   </select>
                 </label>
                 <input type="text" class="box" name="cond_title"value="{{ $cond_title }}"placeholder="キーワードを入力" style="width:400px;height:25px;">
@@ -47,14 +47,16 @@
             <div class="result">
               <h2>検索結果</h2>
             </div>
+            
             <div class="sort">
               
             <form action="{{ action('QuestionController@index') }}" method="get">
               @csrf  
-              <input type="hidden" name="question" value="{{ $questions }}">
+              <input type="hidden" name="category" value="{{ $category }}">
+              <input type="hidden" name="cond_title" value="{{ $cond_title }}">
               <select for="category" name="sort" size="1" >
-                <option value="desc">質問日時の新しい順</option>
-                <option value="asc">質問日時の古い順</option>
+                <option value="desc" {{ $sort == "desc" ? "selected" : "" }}>質問日時の新しい順</option>
+                <option value="asc"{{ $sort == "asc" ? "selected" : "" }}>質問日時の古い順</option>
               </select>
               <button class="sort-btn">並び替え</button>
             </form>
@@ -84,8 +86,8 @@
           @if(count($questions)<=0)
               <p class="null">検索結果と一致する質問がありませんでした</p>
           @endif
-          {{ $questions->links('pagination.default') }}
-  
+          {{ $questions->appends(['cond_title'=>$cond_title,'category'=>$category])->links() }}
+
   
         </div>
 

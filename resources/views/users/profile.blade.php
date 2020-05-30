@@ -31,27 +31,7 @@
           <div class="name">
             <p>{{ $profile->user_name }}</p>  <!--名前が表示されるようにする-->
           </div>
-  
-          <div class="followlist">
-            
-            <div class="follow">
-                <p>フォロー</p>
-                <a href="#">10</a>
-            </div>
-
-            <div class="follower">
-              <p>フォロワー</p>
-              <a href="#">5</a>
-            </div>
-            
-          </div>
-
-          <!--<div class="following">-->
-          <!--  <button>フォロー</button>-->
-          <!--</div>-->
-          <!-- <div class="following">
-          <!--  <button>フォロー中/button>-->
-          <!--</div> -->
+          
 
           <div class="introduction">
             <p>{{ $profile->introduction }}</p>
@@ -66,7 +46,7 @@
           
           @if(Auth::id() === $profile->id)
             <div class="bookmark">
-              <a href="{{ route('edit') }}">ブックマークした質問一覧</a> 
+              <a href="{{ action('BookmarkController@index') }}">ブックマークした質問一覧</a> 
             </div>
           @endif
   

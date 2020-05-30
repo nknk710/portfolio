@@ -38,7 +38,7 @@
             @endforeach
 
           </div>
-          {{ $questions->links('pagination.default') }}
+          {{ $questions->links() }}
   
   
         </div>

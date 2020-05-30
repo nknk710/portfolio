@@ -60,9 +60,9 @@ input {
   font-size: 100%;
 }
 
-.password p {
+.invalid-feedback {
   margin-top: 0;
-  color: #444;
+  color: red;
   font-size: 13px;
 }
 

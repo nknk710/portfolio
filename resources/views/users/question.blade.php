@@ -43,7 +43,7 @@
         <p class="null">投稿された質問がありません</p>
       @endif
       <div class="paginate">
-        {{ $questions->links('pagination.default') }}
+        {{ $questions->appends(['id' => $user_id])->links() }}
       </div>
       
     </div>

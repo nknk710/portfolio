@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Question;
 use App\Models\Answer;
+use App\Models\Bookmark;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
@@ -32,46 +33,39 @@ class QuestionController extends Controller
     public function index(Request $request)
     {
         \Debugbar::info($request);
+
         $cond_title = $request->cond_title;
         $category = $request->category;
-        
-        if ($request->sort){
-            if ($request->sort == 'asc') {
-                $questions = Question::where('category', $category)->where('title', 'LIKE', '%'.$cond_title.'%')->orderBy('created_at','asc')->paginate(10);
-            } elseif ($request->sort == 'desc') {
-                $questions = Question::where('category', $category)->orderBy('created_at','desc')->paginate(10);
+        $query = Question::query();
+        $sort = $request->sort;
+        if($request->sort) {
+            if($request->sort == 'asc') {
+                $query->orderBy('created_at','asc');
+            }elseif($request->sort == 'desc') {
+                $query->orderBy('created_at','desc');
             }
         }else{
-            if ($cond_title != '') {
-                // 検索されたら検索結果を取得する
-                $questions = Question::where('category', $category)->where('title', 'LIKE', '%'.$cond_title.'%')->paginate(10);
-            } else {
-            // それ以外はカテゴリーの一致した質問を取得する
-                $questions = Question::where('category', $category)->paginate(10);
-            }
+            $query->orderBy('created_at','desc');
         }
-        
-        
-        return view('questions.index', ['questions' => $questions, 'cond_title' => $cond_title]);
-    }
-    
-    public function sort(Request $request)
-    {
-        
-        $questions = Question::find($request->id);
-        if($request->asc){
-            $questions = $request->orderBy('created_at','asc');
-        }elseif($request->desc){
-            $questions = $request->orderBy('created_at','desc');
+        // 検索するテキストが入力されている場合のみ
+        if(!empty($cond_title)) {
+            $query->where('title', 'like', '%'.$cond_title.'%');
         }
-        return view('questions.index',['questions' => $questions]);
+        if(!empty($category)) {
+            $query->where('category', $category);
+        }
+        $questions = $query->paginate(10);
+        return view('questions.index', ['questions' => $questions, 'cond_title' => $cond_title, 'category' => $category, 'sort' => $sort]);
     }
     
     public function private_question(Request $request)
     {
-        $id = $request->id;
-        $questions = Question::where('user_id', $id)->paginate(3);
-        return view('users.question', ['questions' => $questions]);
+        $user_id = $request->id;
+        $query = Question::query();
+        $query->orderBy('created_at','desc');
+        $query->where('user_id', $user_id);
+        $questions = $query->paginate(10);
+        return view('users.question', ['questions' => $questions, 'user_id' => $user_id]);
     }
     
     public function create(Request $request)
@@ -100,9 +94,10 @@ class QuestionController extends Controller
     public function show(Request $request){
         $question = Question::find($request->id);
         $answers = Answer::orderBy('created_at','desc')->where('question_id', $request->id)->get();
-        $best_answer = 
-        \Debugbar::info($question);
-        return view('questions.question',['question' => $question, 'answers' => $answers]);
+        $bookmark = $question->bookmarks;
+        $bookmark->where('user_id', Auth::user()->id);
+        \Debugbar::info($bookmark);
+        return view('questions.question',['question' => $question, 'answers' => $answers, 'bookmark'=>$bookmark]);
     }
     
     public function edit(Request $request)

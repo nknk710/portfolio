@@ -69,8 +69,13 @@
               @else
                 @guest
                 @else
-                  <button class="bookmark">この質問をブックマークに追加</button>
-                  <button class="bookmark">この質問をブックマークから削除</button>
+                  @if($question->bookmarks === null)
+                    <form method="POST" action="{{ action('BookmarkController@add') }}">
+                      @csrf
+                      <input name="id" type="hidden" value="{{ $question->id }}">
+                      <button class="bookmark">この質問をブックマークに追加</button>
+                    </form>
+                  @endif
                 @endguest
               @endif
               
