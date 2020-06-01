@@ -13,7 +13,7 @@ Qyou(エンジニアのためのQ＆Aサイト)
 
     <div class="container">
         <div class="left-contents">
-            <div class="main-contents-left">
+            <div class="main-contents-left top">
                 <div class="question-contents">
                     <h1>質問してみよう</h1>
                     <p>分からないことはまずは自らで調べてその結果を試してみましょう。<br>それでも分からなかったり、内容がきちんと理解できない場合などは積極的に質問してみましょう。</p>
