@@ -94,6 +94,8 @@ class QuestionController extends Controller
         $answers = Answer::orderBy('created_at','desc')->where('question_id', $request->id)->get();
         if(Auth::check()){
             $bookmark = $question->bookmarks->where('user_id', Auth::user()->id)->first();
+        }else{
+            $bookmark = null;
         }
         return view('questions.question',['question' => $question, 'answers' => $answers, 'bookmark'=>$bookmark]);
     }
