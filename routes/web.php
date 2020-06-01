@@ -58,9 +58,6 @@ Route::get('questions/index','QuestionController@index');
 Route::get('questions/new_question','QuestionController@new_question');
 
 
-
-
-
 Route::get('contacts/create','ContactController@add')->name('contact');
 Route::post('contacts/create','ContactController@create')->name('contact_done');
 
