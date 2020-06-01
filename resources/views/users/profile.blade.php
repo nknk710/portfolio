@@ -21,11 +21,7 @@
           </div>
 
           <div class="img">
-              @if ($profile->profile_image)
-                  
-              @else
-                  <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
-              @endif
+              
           </div>           
 
           <div class="name">
