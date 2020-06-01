@@ -12,8 +12,11 @@ Qyou(エンジニアのためのQ＆Aサイト)
 @section('content')
 
     <div class="container">
+        <div class="top-image">
+            <img class="back-image" src="{{ secure_asset('image/programming-1873854_1280') }}" alt="">
+        </div>
         <div class="left-contents">
-            <div class="main-contents-left top">
+            <div class="main-contents-left">
                 <div class="question-contents">
                     <h1>質問してみよう</h1>
                     <p>分からないことはまずは自らで調べてその結果を試してみましょう。<br>それでも分からなかったり、内容がきちんと理解できない場合などは積極的に質問してみましょう。</p>
