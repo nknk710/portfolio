@@ -52,8 +52,7 @@
                 </div>
   
               </div>
-              @guest
-              @else
+              
               @if(Auth::id() === $question->user_id || Auth::id() === 1)
                 @if($question->best_answer === null)
                   <form method="POST" action="{{ action('QuestionController@edit') }}">
@@ -79,11 +78,8 @@
                   @endif
                 @endguest
               @endif
-              @endguest
               
               @if($question->best_answer === null)
-                @guest
-                @else
                 @if(Auth::id() !== $question->user_id || Auth::id() === 1)
                   <div class="answer-post">
                     <h3>回答投稿</h3>
@@ -95,7 +91,6 @@
                     </form>
                   </div>
                 @endif
-                @endguest
               @endif
 
               <div class="answer-list">
@@ -152,9 +147,7 @@
                       <span class="created_at">投稿日時</span>
                       <p class="created_at">{{ $answer->created_at->format('Y/m/d H:i') }}</p>
                     </div>
-                    
-                    @guest
-                    @else
+
                     @if($question->best_answer === null && Auth::id() === $question->user_id)
                       <div class="best-answer-set">
                         <form method="GET" action="{{ action('AnswersController@add') }}">
@@ -164,10 +157,7 @@
                         </form>
                       </div>
                     @endif
-                    @endguest
 
-                    @guest
-                    @else
                     @if(Auth::id() === $answer->user->id && $question->best_answer !== $answer->id)
                       <div class="answer-delete">
                         <form method="GET" action="{{ action('AnswersController@delete') }}">
@@ -177,7 +167,6 @@
                         </form>
                       </div>
                     @endif
-                    @endguest
                       
                   </div>
                   @endif
