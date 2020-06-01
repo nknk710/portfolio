@@ -17,7 +17,7 @@
             <div class="title">
               <h1>質問を検索する</h1>
             </div>
-            <div class="search-box">
+            <div class="search-content">
 
               <form action="{{ action('QuestionController@index') }}" method="get">
                 @csrf
@@ -36,7 +36,7 @@
                     <option value="その他" {{ $category == "その他" ? "selected" : "" }}>その他</option>
                   </select>
                 </label>
-                <input type="text" class="box" name="cond_title"value="{{ $cond_title }}"placeholder="キーワードを入力" style="width:400px;height:25px;">
+                <input type="text" class="box" name="cond_title"value="{{ $cond_title }}"placeholder="キーワードを入力" style="width:320px;height:25px;">
                 <button class="search-btn" style="width:70px;height:30px;border-radius:2px;">検索</button>
               </form>
 

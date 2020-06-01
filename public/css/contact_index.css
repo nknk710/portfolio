@@ -1,0 +1,48 @@
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 1300px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto 40px auto;
+  padding-bottom: 70px
+}
+
+.title {
+  margin: 0 auto;
+  padding-top: 100px;
+  width: 400px;
+}
+
+h2 {
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.contact-list {
+  width: 1200px;
+  border: 1px solid #777;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+

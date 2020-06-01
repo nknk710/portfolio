@@ -21,22 +21,6 @@ body {
 
 }
 
-.logo {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 40px;
-  font-weight: normal;
-}
-
-.signup {
-  width: 400px;
-  margin: 20px auto ;
-  padding: 20px;
-  border: 1px solid #777;
-  border-radius: 4px;
-  text-align: center;
-}
-
 .title {
   width: 300px;
   margin: 0 auto 50px;
@@ -101,3 +85,272 @@ textarea {
   font-size: 1.2rem;
 }
 
+
+@media screen and (max-width: 1000px){
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  padding: 100px 0 60px;
+
+}
+
+.title {
+  width: 300px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+h1 {
+  font-weight: normal;
+  border-bottom: 2px solid slategrey;
+}
+
+.contact-form {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid slategray;
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+}
+
+.contents {
+  text-align: right;
+}
+
+label {
+  font-size: 1rem;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.name, .mailaddress, .contact {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.contact label {
+  vertical-align: top;
+
+}
+
+input {
+  width: 60%;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 100%;
+}
+
+textarea {
+  width: 60%;
+  font-size: 90%;
+  border: 1px solid  rgb(103, 109, 117);
+  border-radius: 4px;
+}
+
+.send-btn {
+  margin:20px auto 10px;
+  width: 40%;
+  height: 40px;
+  border-radius: 4px;
+  background-color: rgb(182, 203, 226);
+  font-size: 1.2rem;
+}
+}
+
+@media screen and (max-width: 768px){
+ a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto 40px auto;
+  padding: 100px 0 60px;
+
+}
+
+.title {
+  width: 60%;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  border-bottom: 2px solid slategrey;
+}
+
+label {
+  font-size: 1rem;
+  display: block;
+  text-align: left;
+  margin: 0;
+}
+
+
+.contact-form {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid slategray;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+}
+
+.contents {
+  text-align: right;
+}
+
+.name, .mailaddress, .contact {
+  width: 80%;
+  margin: 0 auto 20px;
+}
+
+.contact label {
+  vertical-align: top;
+}
+
+input {
+  width: 100%;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 90%;
+}
+
+textarea {
+  width: 100%;
+  font-size: 90%;
+  border: 1px solid  rgb(103, 109, 117);
+  border-radius: 4px;
+}
+
+.send-btn {
+  margin:20px auto 10px;
+  width: 40%;
+  height: 40px;
+  border-radius: 4px;
+  background-color: rgb(182, 203, 226);
+  font-size: 1.2rem;
+}
+}
+
+@media screen and (max-width: 375px){
+   a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto 40px auto;
+  padding: 100px 0 60px;
+
+}
+
+.title {
+  width: 70%;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  border-bottom: 2px solid slategrey;
+}
+
+label {
+  font-size: 1rem;
+  display: block;
+  text-align: left;
+  margin: 0;
+}
+
+
+.contact-form {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid slategray;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+}
+
+.contents {
+  text-align: right;
+}
+
+.name, .mailaddress, .contact {
+  width: 80%;
+  margin: 0 auto 20px;
+}
+
+.contact label {
+  vertical-align: top;
+}
+
+input {
+  width: 100%;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 90%;
+}
+
+textarea {
+  width: 100%;
+  font-size: 90%;
+  border: 1px solid  rgb(103, 109, 117);
+  border-radius: 4px;
+}
+
+.send-btn {
+  margin:0 auto 20px;
+  width: 40%;
+  height: 30px;
+  border-radius: 4px;
+  background-color: rgb(182, 203, 226);
+  font-size: 1rem;
+}
+}

@@ -86,3 +86,374 @@ input {
 .invalid-feedback {
   color: red;
 }
+
+@media screen and (max-width: 1000px){
+  a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto 40px auto;
+  padding: 120px 0 80px;
+}
+
+.logo {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.signup {
+  width: 80%;
+  margin: 20px auto ;
+  padding: 20px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.title {
+  width: 300px;
+  margin: 0 auto 40px;
+}
+
+h1 {
+  font-weight: normal;
+  border-bottom: 2px solid slategrey;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+input {
+  width: 70%;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 100%;
+}
+
+.password p {
+  margin-top: 0;
+  color: #444;
+  font-size: 13px;
+}
+
+.login-btn {
+  margin:50px 0 10px;
+  width: 70%;
+  height: 40px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.checkbox {
+  margin-top: 30px
+}
+
+.check {
+  width: 20px;
+}
+
+.invalid-feedback {
+  color: red;
+}
+}
+
+@media screen and (max-width: 768px){
+    a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto 40px auto;
+  padding: 120px 0 80px;
+}
+
+.logo {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.signup {
+  width: 80%;
+  margin: 20px auto ;
+  padding: 20px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.title {
+  width: 180px;
+  margin: 0 auto 40px;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 1.5rem;
+  border-bottom: 2px solid slategrey;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+input {
+  width: 70%;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 100%;
+}
+
+.password p {
+  margin-top: 0;
+  color: #444;
+  font-size: 13px;
+}
+
+.login-btn {
+  margin:50px 0 10px;
+  width: 70%;
+  height: 40px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.checkbox {
+  margin-top: 30px
+}
+
+.check {
+  width: 20px;
+}
+
+.invalid-feedback {
+  color: red;
+}
+}
+
+@media screen and (max-width: 375px){
+a {
+    text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto 40px auto;
+  padding: 120px 0 80px;
+}
+
+.logo {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.signup {
+  width: 80%;
+  margin: 20px auto ;
+  padding: 20px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.title {
+  width: 300px;
+  margin: 0 auto 40px;
+}
+
+h1 {
+  font-weight: normal;
+  border-bottom: 2px solid slategrey;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+input {
+  width: 70%;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 100%;
+}
+
+.password p {
+  margin-top: 0;
+  color: #444;
+  font-size: 13px;
+}
+
+.login-btn {
+  margin:50px 0 10px;
+  width: 70%;
+  height: 40px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.checkbox {
+  margin-top: 30px
+}
+
+.check {
+  width: 20px;
+}
+
+.invalid-feedback {
+  color: red;
+}
+}
+
+@media screen and (max-width: 768px){
+    a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto 40px auto;
+  padding: 120px 0 80px;
+}
+
+.logo {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.signup {
+  width: 80%;
+  margin: 20px auto ;
+  padding: 20px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.title {
+  width: 140px;
+  margin: 0 auto 40px;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 1.2rem;
+  border-bottom: 2px solid slategrey;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+input {
+  width: 70%;
+  height: 15px;
+  border-radius: 4px;
+  font-size: 100%;
+}
+
+.password p {
+  margin-top: 0;
+  color: #444;
+  font-size: 13px;
+}
+
+.login-btn {
+  margin:30px 0 10px;
+  width: 70%;
+  height: 20px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 60%;
+}
+
+.checkbox {
+  margin-top: 10px
+}
+
+.checkbox label{
+  font-size: 0.6rem;
+}
+
+.check {
+  width: 20px;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+}

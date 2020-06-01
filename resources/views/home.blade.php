@@ -46,8 +46,8 @@ Qyou(エンジニアのためのQ＆Aサイト)
                                 <option value="その他">その他</option>
                             </select>
                         </label>
-                        <input type="text" class="box" name="cond_title" placeholder="キーワードを入力"  style="width:300px;height:25px;">
-                        <button style="width:50px;height:30px;border-radius:2px;">検索</button>
+                        <input type="text" class="box" name="cond_title" placeholder="キーワードを入力"  style="width:270px;height:25px;">
+                        <button class="search-btn" style="width:50px;height:30px;border-radius:2px;">検索</button>
                     </form>
 
                 </div>
@@ -78,29 +78,7 @@ Qyou(エンジニアのためのQ＆Aサイト)
                 </div>
                 
             </div>
-            @guest
-            @else
-                <div class="main-contents-left">
-                    <h1 class="">フォロワーの質問</h1>
-                </div>
-            @endguest
-
-            <div class="main-contents-left">
-                <h1 class="">空き</h1>
-            </div>
-
-        </div>
-        <div class="right-contents">
-            <div class="main-contents-right ad">
-                <h1 class="">広告</h2>
-            </div>
-            <div class="main-contents-right vip-question">
-                <h1 class="text-title">困っています</h1>
-            </div>
-            <div class="main-contents-right">
-                <h1 class="text-title">空き</h1>
-            </div>
-        </div>
+            
     </div>
 </div> 
 

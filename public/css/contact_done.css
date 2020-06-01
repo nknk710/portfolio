@@ -38,3 +38,135 @@ h1 {
   border-radius: 4px;
   font-size: 18px;
 }
+
+@media screen and (max-width: 1000px){
+  a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  padding: 100px 0 60px;
+}
+
+
+
+h1 {
+  margin: 0 auto 40px;
+  padding-top: 50px;
+  font-weight: normal;
+}
+
+
+.done-btn {
+  margin:20px 0 10px;
+  width: 300px;
+  height: 40px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+}
+
+@media screen and (max-width: 768px){
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0 auto 20px;
+  padding-top: 30px;
+  font-weight: normal;
+}
+
+
+.done-btn {
+  margin:20px 0 10px;
+  width: 60%;
+  height: 30px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+}
+
+@media screen and (max-width: 375px){
+  a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+
+
+h1 {
+  font-size: 1.3rem;
+  margin: 0 auto 20px;
+  padding-top: 30px;
+  font-weight: normal;
+}
+
+
+.done-btn {
+  margin:20px 0 10px;
+  width: 60%;
+  height: 30px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+}

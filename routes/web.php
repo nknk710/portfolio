@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('bookmarks/add','BookmarkController@add');
     Route::get('users/bookmark','BookmarkController@index');
     Route::get('users/delete','BookmarkController@delete');
+    
+    Route::get('contacts/index','ContactController@index');
 
 });
 

@@ -101,7 +101,7 @@ textarea {
 .post-btn {
   display: block;
   margin: 10px auto;
-  width: 100px;
+  width: 30%;
   height: 30px;
 }
 
@@ -165,4 +165,548 @@ textarea {
 
 .date {
   text-align: right;
+}
+
+@media screen and (max-width: 1000px){
+ a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+}
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 0;
+  padding-top: 40px;
+}
+
+.question-head {
+  padding-top: 80px;
+}
+
+.profile_img {
+  width: 40px;
+  height: 40px;
+}
+
+span {
+  font-size: 0.8rem;
+  padding: 5px;
+  display: inline-block;
+  height: 13px;
+  line-height: 13px;
+  border-radius: 2px;
+}
+
+.solution {
+  color: white;
+  border: 1px solid rgb(65, 62, 62);
+  background-color: red;
+  margin-right: 5px;
+}
+
+.unsolved {
+  color: white;
+  border: 1px solid rgb(65, 62, 62);
+  background-color: green;
+  margin-right: 5px;
+}
+
+.question {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid slategray;
+  border-radius: 3px;
+  padding: 30px;
+}
+
+.question-category {
+  background-color: rgb(143, 179, 212);
+  border: 1px solid rgb(65, 62, 62);
+  margin-right: 20px;
+}
+
+.post-day p {
+  margin: 20px 0 0;
+}
+
+.answer-post {
+  width: 90%;
+  margin: 100px auto 50px;
+  padding-bottom: 40px;
+  text-align: center;
+  border-bottom: 2px solid rgb(174, 180, 185);
+}
+
+textarea {
+  width: 90%;
+  font-size: 90%;
+}
+
+.post-day {
+  text-align: right;
+}
+
+.post-btn {
+  display: block;
+  margin: 10px auto;
+  width: 30%;
+  height: 30px;
+}
+
+.answer-list {
+  width: 95%;
+  margin: 40px auto;
+  padding-bottom: 40px;
+}
+
+.answer-head {
+  height: 55px;
+  background-color: rgba(202, 219, 236, 0.9);
+}
+
+.answer-head h3 {
+  line-height: 55px;
+  margin-left: 30px;
+}
+
+.answer {
+  width: 95%;
+  margin: 20px auto;
+  padding: 30px 30px 20px 30px;
+  border-bottom: 1px solid rgb(148, 167, 185);
+}
+
+.answer-content {
+  margin-bottom: 40px;
+}
+
+.best-answer {
+  color: red;
+  font-weight: bold;
+  border-bottom: solid 1px rgb(230, 21, 31);
+  background-color: rgb(250, 232, 211);
+}
+
+.answer-user {
+  text-align: right;
+}
+
+.bookmark-btn {
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.delete-btn {
+  background-color: rgb(238, 158, 158);
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.created_at {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.answer-delete-btn {
+  background-color: rgb(238, 158, 158);
+}
+
+.date {
+  text-align: right;
+}
+}
+
+@media screen and (max-width: 768px){
+ a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+}
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 0;
+  padding-top: 40px;
+}
+
+h3 {
+  font-size: 0.9rem;
+}
+
+.question-head {
+  padding-top: 80px;
+}
+
+.profile_img {
+  width: 30px;
+  height: 30px;
+}
+
+span {
+  font-size: 0.7rem;
+  padding: 5px;
+  display: inline-block;
+  height: 9px;
+  line-height: 9px;
+  border-radius: 2px;
+}
+
+.solution {
+  color: white;
+  border: 1px solid rgb(65, 62, 62);
+  background-color: red;
+  margin-right: 5px;
+}
+
+.unsolved {
+  color: white;
+  border: 1px solid rgb(65, 62, 62);
+  background-color: green;
+  margin-right: 5px;
+}
+
+.question {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid slategray;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.qustion-body p {
+  font-size: 0.9rem;
+}
+
+.question-category {
+  background-color: rgb(143, 179, 212);
+  border: 1px solid rgb(65, 62, 62);
+  margin-right: 20px;
+}
+
+.post-day p {
+  margin: 20px 0 0;
+}
+
+.answer-post {
+  width: 90%;
+  margin: 50px auto 30px;
+  padding-bottom: 40px;
+  text-align: center;
+  border-bottom: 2px solid rgb(174, 180, 185);
+}
+
+textarea {
+  width: 90%;
+  font-size: 90%;
+}
+
+.post-day {
+  text-align: right;
+}
+
+.post-btn {
+  font-size: 0.7rem;
+  display: block;
+  margin: 10px auto;
+  width: 40%;
+  height: 30px;
+}
+
+.answer-list {
+  width: 95%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+}
+
+.answer-head {
+  height: 55px;
+  background-color: rgba(202, 219, 236, 0.9);
+}
+
+.answer-head h3 {
+  line-height: 55px;
+  margin-left: 30px;
+}
+
+.answer {
+  width: 95%;
+  margin: 20px auto;
+  padding: 20px 20px 10px 20px;
+  border-bottom: 1px solid rgb(148, 167, 185);
+}
+
+.answer-content {
+  margin-bottom: 10px;
+}
+
+.best-answer {
+  color: red;
+  font-weight: bold;
+  border-bottom: solid 1px rgb(230, 21, 31);
+  background-color: rgb(250, 232, 211);
+}
+
+.answer-user {
+  text-align: right;
+}
+
+.bookmark-btn {
+  font-size: 0.7rem;
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.delete-btn {
+  font-size: 0.7rem;
+  background-color: rgb(238, 158, 158);
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.created_at {
+  display: inline-block;
+  font-size: 0.7rem;
+}
+
+.answer-delete-btn {
+  font-size: 0.6rem;
+  background-color: rgb(238, 158, 158);
+}
+
+.date {
+  text-align: right;
+}
+.set-btn {
+  font-size: 0.7rem;
+}
+}
+
+@media screen and (max-width: 375px){
+ a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+}
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 0;
+  padding-top: 40px;
+}
+
+h3 {
+  font-size: 0.9rem;
+}
+
+.question-head {
+  padding-top: 50px;
+}
+
+.profile_img {
+  width: 30px;
+  height: 30px;
+}
+
+span {
+  font-size: 0.7rem;
+  padding: 5px;
+  display: inline-block;
+  height: 9px;
+  line-height: 9px;
+  border-radius: 2px;
+}
+
+.solution {
+  color: white;
+  border: 1px solid rgb(65, 62, 62);
+  background-color: red;
+  margin-right: 5px;
+}
+
+.unsolved {
+  color: white;
+  border: 1px solid rgb(65, 62, 62);
+  background-color: green;
+  margin-right: 5px;
+}
+
+.question {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid slategray;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.qustion-body p {
+  font-size: 0.9rem;
+}
+
+.question-category {
+  background-color: rgb(143, 179, 212);
+  border: 1px solid rgb(65, 62, 62);
+  margin-right: 20px;
+}
+
+.post-day p {
+  margin: 20px 0 0;
+}
+
+.answer-post {
+  width: 100%;
+  margin: 50px auto 30px;
+  padding-bottom: 40px;
+  text-align: center;
+  border-bottom: 2px solid rgb(174, 180, 185);
+}
+
+textarea {
+  width: 90%;
+  font-size: 90%;
+}
+
+.post-day {
+  text-align: right;
+}
+
+.post-btn {
+  font-size: 0.6rem;
+  display: block;
+  margin: 10px auto;
+  width: 50%;
+  height: 20px;
+}
+
+.answer-list {
+  width: 95%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+}
+
+.answer-head {
+  height: 55px;
+  background-color: rgba(202, 219, 236, 0.9);
+}
+
+.answer-head h3 {
+  line-height: 55px;
+  margin-left: 30px;
+}
+
+.answer {
+  width: 95%;
+  margin: 20px auto;
+  padding: 20px 20px 10px 20px;
+  border-bottom: 1px solid rgb(148, 167, 185);
+}
+
+.answer-content {
+  margin-bottom: 10px;
+}
+
+.best-answer {
+  color: red;
+  font-weight: bold;
+  border-bottom: solid 1px rgb(230, 21, 31);
+  background-color: rgb(250, 232, 211);
+}
+
+.answer-user {
+  text-align: right;
+}
+
+.bookmark-btn {
+  font-size: 0.6rem;
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.delete-btn {
+  font-size: 0.6rem;
+  background-color: rgb(238, 158, 158);
+  margin: 20px 0 0 100px;
+  display: inline-block;
+}
+
+.created_at {
+  display: inline-block;
+  font-size: 0.7rem;
+}
+
+.answer-delete-btn {
+  font-size: 0.6rem;
+  background-color: rgb(238, 158, 158);
+}
+
+.date {
+  text-align: right;
+}
+
+.set-btn {
+  font-size: 0.6rem;
+}
 }

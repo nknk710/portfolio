@@ -59,3 +59,201 @@ select {
   height: 60px;
   font-size: 90%;
 }
+
+@media screen and (max-width: 1000px){
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  padding: 90px 0 50px;
+}
+
+select {
+  height: 25px;
+  font-size: 90%;
+}
+
+.question-title {
+  padding: 20px 0;
+}
+
+.question-title input {
+  width: 90%;
+  height: 20px;
+  font-size: 90%;
+}
+
+.question {
+  margin-bottom: 30px;
+}
+
+.question textarea {
+  margin-top: 0;
+  width: 90%;
+  height: 400px;
+  font-size: 90%;
+}
+
+.post-btn {
+  width: 30%;
+  height: 40px;
+  font-size: 90%;
+}
+
+p {
+  margin: 0;
+}
+
+}
+
+@media screen and (max-width: 768px){
+ a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  padding: 90px 0 50px;
+}
+
+select {
+  height: 25px;
+  font-size: 75%;
+}
+
+.question-title {
+  padding: 20px 0;
+}
+
+.question-title input {
+  width: 98%;
+  height: 20px;
+  font-size: 80%;
+}
+
+.question {
+  margin-bottom: 30px;
+}
+
+.question textarea {
+  margin-top: 0;
+  width: 98%;
+  height: 400px;
+  font-size: 90%;
+}
+
+.post-btn {
+  width: 40%;
+  height: 40px;
+  font-size: 77%;
+}
+
+p {
+  margin: 0;
+}
+}
+
+@media screen and (max-width: 375px){
+   a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  padding: 90px 0 50px;
+}
+
+select {
+  height: 25px;
+  font-size: 75%;
+}
+
+.question-title {
+  padding: 5px 0;
+}
+
+.question-title p{
+  margin: 0;
+}
+
+.question-title input {
+  width: 98%;
+  height: 20px;
+  font-size: 80%;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+.question textarea {
+  margin-top: 0;
+  width: 98%;
+  height: 300px;
+  font-size: 80%;
+}
+
+.post-btn {
+  width: 46%;
+  height: 40px;
+  font-size: 70%;
+}
+
+p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+}

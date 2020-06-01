@@ -69,7 +69,7 @@
               @else
                 @guest
                 @else
-                  @if($question->bookmarks === null)
+                  @if($bookmark === null)
                     <form method="POST" action="{{ action('BookmarkController@add') }}">
                       @csrf
                       <input name="id" type="hidden" value="{{ $question->id }}">

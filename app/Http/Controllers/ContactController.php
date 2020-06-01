@@ -32,4 +32,10 @@ class ContactController extends Controller
       return view('contacts.contact_done');
     }
     
+    public function index()
+    {
+        $contacts = Contact::orderBy('created_at','desc')->paginate(10);
+        return view('contacts.index', ['contacts' => $contacts]);
+    }
+    
 }

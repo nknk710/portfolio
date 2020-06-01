@@ -49,3 +49,163 @@ h1 {
   font-size: 18px;
   display: block;
 }
+
+@media screen and (max-width: 1000px){
+  a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  padding: 120px 0 80px;
+}
+
+
+
+h1 {
+  margin: 0 auto 50px;
+  padding-top: 70px;
+  font-weight: normal;
+}
+
+
+.show-btn {
+  margin:80px auto 10px;
+  width: 300px;
+  height: 40px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 18px;
+  display: block;
+}
+
+.home-btn {
+  margin:80px auto 10px;
+  width: 300px;
+  height: 40px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 18px;
+  display: block;
+}
+}
+
+@media screen and (max-width: 768px){
+    a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  padding: 70px 0 40px;
+}
+
+h1 {
+  margin: 0 auto 30px;
+  padding-top: 50px;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+
+.show-btn {
+  margin:50px auto 10px;
+  width: 60%;
+  height: 30px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.home-btn {
+  margin:50px auto 10px;
+  width: 60%;
+  height: 30px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: block;
+}
+}
+
+@media screen and (max-width: 375px){
+      a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  color: #333;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  padding: 70px 0 40px;
+}
+
+h1 {
+  margin: 0 auto 30px;
+  padding-top: 50px;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+
+.show-btn {
+  margin:30px auto 10px;
+  width: 80%;
+  height: 25px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: block;
+}
+
+.home-btn {
+  margin:30px auto 10px;
+  width: 80%;
+  height: 25px;
+  background-color: rgb(235, 201, 8);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: block;
+}
+}
