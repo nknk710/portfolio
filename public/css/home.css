@@ -45,8 +45,9 @@ h1 {
 }
 
 .top-image {
-  width: 100%;
-  height: 150px;
+  width: 1200px;
+  height: 200px;
+  margin: 0 auto;
 }
 
 .text-title {
