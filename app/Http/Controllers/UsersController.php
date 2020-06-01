@@ -49,8 +49,8 @@ class UsersController extends Controller
       if (isset($user_form['profile_image'])) {
         // $path = $request->file('profile_image')->store('public/image');
         // $user->profile_image = basename($path);
-        // $path = Storage::disk('s3')->putFile('/',$user_form['profile_image'],'public');
-        // $user->profile_image = Storage::disk('s3')->url($path);
+        $path = Storage::disk('s3')->putFile('/',$user_form['profile_image'],'public');
+        $user->profile_image = Storage::disk('s3')->url($path);
         unset($user_form['profile_image']);
       } elseif (isset($request->remove)) {
         $user->profile_image = null;
