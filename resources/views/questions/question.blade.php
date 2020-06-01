@@ -171,7 +171,8 @@
                   </div>
                   @endif
                 @endforeach
-                @if(count($answers) >= 0)
+                
+                @if(count($answers) <= 0)
                   <p>現在この質問に対する回答はありません</p>
                 @endif
                 
