@@ -9,7 +9,7 @@ use App\Models\Answer;
 use App\Models\Bookmark;
 use Illuminate\Support\Facades\Auth;
 use DB;
-
+use Storage;
 
 class QuestionController extends Controller
 {

@@ -24,7 +24,7 @@
               
             <div class="img">
               @if ($profile->profile_image)
-                  <img class="profile_img" src="{{ secure_asset('storage/image/' . $profile->profile_image) }}"><br>
+                  <img class="profile_img" src="{{ $profile->profile_image }}"><br>
               @else
                   <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_img" alt=""><br>
               @endif

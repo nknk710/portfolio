@@ -110,7 +110,7 @@
                     </div>
                     <div class="answer-user user">
                       @if ($answer->user->profile_image !== null)
-                        <img class="profile_img" src="{{ secure_asset('storage/image/' . $answer->user->profile_image) }}">
+                        <img class="profile_img" src="{{ $answer->user->profile_image }}">
                       @else
                         <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
                       @endif
@@ -137,7 +137,7 @@
                     </div>
                     <div class="answer-user user">
                       @if ($answer->user->profile_image !== null)
-                        <img class="profile_img" src="{{ secure_asset('storage/image/' . $answer->user->profile_image) }}">
+                        <img class="profile_img" src="{{ $answer->user->profile_image }}">
                       @else
                         <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
                       @endif

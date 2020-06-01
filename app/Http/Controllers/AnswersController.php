@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Question;
 use App\Models\Answer;
 use Illuminate\Support\Facades\Auth;
+use Storage;
 
 
 class AnswersController extends Controller
