@@ -21,7 +21,6 @@ class UsersController extends Controller
     public function index(Request $request){
       
       $profile = User::find($request->id);
-      \Debugbar::info($profile);
       return view('users.profile', ['profile' => $profile]);
     }
     
