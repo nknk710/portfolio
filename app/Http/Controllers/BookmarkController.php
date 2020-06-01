@@ -33,7 +33,6 @@ class BookmarkController extends Controller
         $query->where('user_id',$id);
         $bookmarks = $query->paginate(3);
         
-        \Debugbar::info($bookmarks);
         return view('users.bookmark', ['bookmarks' => $bookmarks]);
     }
     

@@ -32,7 +32,6 @@ class QuestionController extends Controller
     
     public function index(Request $request)
     {
-        \Debugbar::info($request);
 
         $cond_title = $request->cond_title;
         $category = $request->category;
@@ -80,7 +79,6 @@ class QuestionController extends Controller
         $form = $request->all();
         $form['user_id'] = $id;
 
-        \Debugbar::info($form);
 
         // フォームから送信されてきた_tokenを削除する
         unset($form['_token']);
@@ -96,7 +94,6 @@ class QuestionController extends Controller
         $answers = Answer::orderBy('created_at','desc')->where('question_id', $request->id)->get();
         // $bookmark = $question->bookmarks->where('user_id', Auth::user()->id)->exists();
         $bookmark = $question->bookmarks->where('user_id', Auth::user()->id)->first();
-        \Debugbar::info($bookmark);
         return view('questions.question',['question' => $question, 'answers' => $answers, 'bookmark'=>$bookmark]);
     }
     
@@ -120,8 +117,6 @@ class QuestionController extends Controller
         $question_form = $request->all();
         unset($question_form['_token']);
         
-        \Debugbar::info($question_form);
-
         // 該当するデータを上書きして保存する
         $question->fill($question_form)->save();
       
@@ -144,8 +139,6 @@ class QuestionController extends Controller
         // 送信されてきたフォームデータを格納する
         $best_answer = Answer::find($request->answer_id);
         
-        \Debugbar::info($question_form);
-
         // 該当するデータを上書きして保存する
         $question->best_answer = $best_answer;
         $question->save();
