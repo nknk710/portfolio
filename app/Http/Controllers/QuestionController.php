@@ -92,7 +92,7 @@ class QuestionController extends Controller
     public function show(Request $request){
         $question = Question::find($request->id);
         $answers = Answer::orderBy('created_at','desc')->where('question_id', $request->id)->get();
-        if(Auth::user()){
+        if(Auth::check()){
             $bookmark = $question->bookmarks->where('user_id', Auth::user()->id)->first();
         }
         return view('questions.question',['question' => $question, 'answers' => $answers, 'bookmark'=>$bookmark]);
