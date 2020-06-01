@@ -10,9 +10,7 @@ Qyou(エンジニアのためのQ＆Aサイト)
 
 
 @section('content')
-    <div class="top-image">
-        <img class="back-image" src="{{ secure_asset('image/programming-1873854_1280.webp') }}" alt="">
-    </div>
+
     <div class="container">
         
         <div class="left-contents">
