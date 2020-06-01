@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('users/profile_edit','UsersController@edit')->name('edit');
     Route::post('users/profile_set','UsersController@update')->name('profile_set');
     Route::get('users/profile','UsersController@index')->name('profile');
-    Route::post('users/profile','UsersController@index')->name('profile');
+    // Route::post('users/profile','UsersController@index')->name('profile');
     Route::get('users/my_profile','UsersController@my_profile')->name('my_profile');
     
     Route::get('users/private_question','QuestionController@private_question')->name('private_question');
