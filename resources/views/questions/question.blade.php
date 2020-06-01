@@ -26,7 +26,7 @@
               <div class="question">
                 <div class="quesrion-user user">
                   @if ($question->user->profile_image !== null)
-                    <img class="profile_img" src="{{ secure_asset('storage/image/' . $question->user->profile_image) }}">
+                    <img class="profile_img" src="{{ $question->user->profile_image }}">
                   @else
                     <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
                   @endif
