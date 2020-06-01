@@ -13,7 +13,7 @@ Qyou(エンジニアのためのQ＆Aサイト)
 
     <div class="container">
         <div class="top-image">
-            <img class="back-image" src="{{ secure_asset('image/programming-1873854_1280') }}" alt="">
+            <img class="back-image" src="{{ secure_asset('image/programming-1873854_1280.webp') }}" alt="">
         </div>
         <div class="left-contents">
             <div class="main-contents-left">

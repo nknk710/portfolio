@@ -203,7 +203,7 @@ h1 {
 .container {
   width: 90%;
   margin: 0 auto 40px auto;
-  padding: 30px;
+  padding: 60px 30px 30px;
 }
 
 .text-title {
