@@ -57,8 +57,6 @@ class UsersController extends Controller
       }
       unset($user_form['_token']);
       
-      $user_form['admin'] = true;
-
       // 該当するデータを上書きして保存する
       $user->fill($user_form)->save();
       
