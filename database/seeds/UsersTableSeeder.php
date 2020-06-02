@@ -13,14 +13,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 1; $i++) {
             User::create([
-                'name'    => 'TEST' .$i,
-                'email'          => 'test' .$i .'@test.com',
-                'user_name'      => 'test_user' .$i,
-                'introduction'   => '宜しくお願いいたします。' .$i,
-                'profile_image'  => 'https://placehold.jp/50x50.png',
-                'password'       => Hash::make('12345678'),
+                'name'    => '管理人',
+                'email'          => 'e1697@icloud.com',
+                'user_name'      => 'test_user',
+                'introduction'   => '宜しくお願いいたします。',
+                'profile_image'  => null,
+                'password'       => Hash::make('koki1697'),
+                'admin'          => true,
                 'remember_token' => str_random(10),
                 'created_at'     => now(),
                 'updated_at'     => now()
