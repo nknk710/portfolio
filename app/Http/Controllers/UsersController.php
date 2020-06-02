@@ -28,9 +28,6 @@ class UsersController extends Controller
     {
       $id = Auth::id();
       $profile = User::find($id);
-      $user = Auth::user();
-      $user['admin'] = true;
-      $user->save();
       return view('users.profile', ['profile' => $profile]);
     }
     
