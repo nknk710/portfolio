@@ -53,7 +53,7 @@
   
               </div>
               
-              @if(Auth::id() === $question->user_id || Auth::id() === 1)
+              @if(Auth::id() === $question->user_id || Auth::user()->admin)
                 @if($question->best_answer === null)
                   <form method="POST" action="{{ action('QuestionController@edit') }}">
                     @csrf
