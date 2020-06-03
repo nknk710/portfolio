@@ -94,10 +94,12 @@ class QuestionController extends Controller
         $answers = Answer::orderBy('created_at','desc')->where('question_id', $request->id)->get();
         if(Auth::check()){
             $bookmark = $question->bookmarks->where('user_id', Auth::user()->id)->first();
+            $admin = Auth::user()->admin;
         }else{
             $bookmark = null;
+            $admin = null;
         }
-        return view('questions.question',['question' => $question, 'answers' => $answers, 'bookmark'=>$bookmark]);
+        return view('questions.question',['question' => $question, 'answers' => $answers, 'bookmark'=>$bookmark, 'admin'=>$admin]);
     }
     
     public function edit(Request $request)
