@@ -89,6 +89,11 @@ span {
   border-bottom: 2px solid rgb(174, 180, 185);
 }
 
+.guest-message {
+  margin: 20px 0;
+  color: red;
+}
+
 textarea {
   width: 600px;
   font-size: 90%;

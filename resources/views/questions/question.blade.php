@@ -84,12 +84,16 @@
                 @if(Auth::id() !== $question->user_id)
                   <div class="answer-post">
                     <h3>回答投稿</h3>
-                    <form action="{{ action('AnswersController@create') }}" method="POST">
+                    @guest
+                      <p class="guest-message">会員登録すると回答投稿機能がご利用できます</p>
+                    @else
+                      <form action="{{ action('AnswersController@create') }}" method="POST">
                         @csrf
                         <textarea name="answer" id="" cols="30" rows="10"></textarea>
-                      <input name="id" type="hidden" value="{{ $question->id }}">
-                      <button class="post-btn">回答を投稿する</button>
-                    </form>
+                        <input name="id" type="hidden" value="{{ $question->id }}">
+                        <button class="post-btn">回答を投稿する</button>
+                      </form>
+                    @endguest
                   </div>
                 @endif
               @endif
