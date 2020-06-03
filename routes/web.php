@@ -23,12 +23,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('users/register_done','UsersController@add');
     Route::get('users/profile_edit','UsersController@edit')->name('edit');
     Route::post('users/profile_set','UsersController@update')->name('profile_set');
-    Route::get('users/profile','UsersController@index')->name('profile');
-    // Route::post('users/profile','UsersController@index')->name('profile');
     Route::get('users/my_profile','UsersController@my_profile')->name('my_profile');
-    
-    Route::get('users/private_question','QuestionController@private_question')->name('private_question');
-    
 
     Route::get('questions/create','QuestionController@add')->name('question_create');
     Route::get('questions/post_done','QuestionController@update');
@@ -52,6 +47,11 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 // ゲスト状態
+Route::get('users/profile','UsersController@index')->name('profile');
+// Route::post('users/profile','UsersController@index')->name('profile');
+Route::get('users/private_question','QuestionController@private_question')->name('private_question');
+
+
 Route::post('questions/question','QuestionController@show')->name('question');
 Route::get('questions/question','QuestionController@show')->name('show_question');
 Route::get('questions/index','QuestionController@index');
