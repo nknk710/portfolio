@@ -39,6 +39,7 @@ h1 {
 }
 
 .container {
+  background-image: url({{ url::secure_asset('image/programming-1873854_1280.webp'); }});
   width: 1000px;
   margin: 0 auto 40px auto;
   padding: 60px 30px 30px;
