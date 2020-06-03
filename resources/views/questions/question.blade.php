@@ -81,7 +81,7 @@
               @endif
               
               @if($question->best_answer === null)
-                @if(Auth::id() !== $question->user_id || Auth::id() === 1)
+                @if(Auth::id() !== $question->user_id)
                   <div class="answer-post">
                     <h3>回答投稿</h3>
                     <form action="{{ action('AnswersController@create') }}" method="POST">
