@@ -42,9 +42,9 @@
                         </tbody>
                     </table>
               </div>
-              
-          {{ $contacts->links() }}
-
+          @if(count($contacts)>0)
+              {{ $contacts->links() }}
+          @endif
         </div>
 
       
