@@ -19,6 +19,7 @@
             </div>
             
           </div>
+          @if(count($contacts)>0)
 
               <div class="contact-list">
                   <table class="table table-dark">
@@ -42,7 +43,6 @@
                         </tbody>
                     </table>
               </div>
-          @if(count($contacts)>0)
               {{ $contacts->links() }}
           @endif
         </div>
