@@ -13,16 +13,15 @@
 
         <div class="container">
   
-          <div class="top-wrapper">
-            <div class="title">
-              <h2>お問い合わせ一覧</h2>
+            <div class="top-wrapper">
+              <div class="title">
+                <h2>お問い合わせ一覧</h2>
+              </div>
             </div>
-            
-          </div>
-          @if(count($contacts)>0)
+            @if(count($contacts)>0)
 
-              <div class="contact-list">
-                  <table class="table table-dark">
+                <div class="contact-list">
+                    <table class="table table-dark">
                         <thead>
                             <tr>
                                 <th width="10%">名前</th>
@@ -42,10 +41,9 @@
                             @endforeach
                         </tbody>
                     </table>
-              </div>
-              {{ $contacts->links() }}
-          @endif
+                </div>
+                {{ $contacts->links() }}
+           @endif
         </div>
 
-      
 @endsection
