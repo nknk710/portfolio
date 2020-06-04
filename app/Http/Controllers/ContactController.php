@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ContactController extends Controller
 {
