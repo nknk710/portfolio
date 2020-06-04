@@ -34,7 +34,11 @@ class ContactController extends Controller
     
     public function index()
     {
-        $contacts = Contact::orderBy('created_at','desc')->paginate(10);
+        if(Auth::user()->admin){
+            $contacts = Contact::orderBy('created_at','desc')->paginate(10);
+        }else{
+            $contacts = null;
+        }
         return view('contacts.index', ['contacts' => $contacts]);
     }
     

@@ -21,7 +21,6 @@
           </div>
 
               <div class="contact-list">
-                  @if(Auth::user()->id === 1)
                   <table class="table table-dark">
                         <thead>
                             <tr>
@@ -42,7 +41,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    @endif
               </div>
               
           {{ $contacts->links() }}
