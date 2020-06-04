@@ -67,7 +67,8 @@
                   <input name="id" type="hidden" value="{{ $question->id }}">
                   <button class="delete-btn">質問を削除する</button>
                 </form>
-              @else
+              @endif
+              @if(Auth::id() !== $question->user_id)
                 @guest
                 @else
                   @if($bookmark === null)
