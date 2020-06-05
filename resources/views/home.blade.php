@@ -70,9 +70,6 @@ Qyou(エンジニアのためのQ＆Aサイト)
                           <a href="{{ action('QuestionController@show', ['id' => $question->id]) }}">{{ $question->title }}</a>
                       </div>        
                     </div>
-                    @if($loop->iteration === 5)
-                        @break
-                    @endif
                 @endforeach
                 <div class="more">
                     <a href="{{ action('QuestionController@new_question') }}">もっと見る</a>

@@ -20,7 +20,7 @@ class QuestionController extends Controller
     
     public function home()
     {
-        $questions = Question::orderBy('created_at','desc')->get();
+        $questions = Question::orderBy('created_at','desc')->limit(5)->get();
         return view('home', ['questions' => $questions]);
     }
     
