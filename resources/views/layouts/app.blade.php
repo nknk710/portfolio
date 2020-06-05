@@ -54,8 +54,8 @@
                             <li><a class="drawer-menu-item" href="{{ route('contact') }}">お問い合わせ</a></li>
                         @else
                             <li><p class="drawer-brand">Menu</p></li>
-                            @if(Auth::user()->admin === true)
-                            <li><a class="drawer-menu-item" href="{{ route('my_profile') }}">管理者</a></li>
+                            @if(Auth::user()->admin == true)
+                                <li><a class="drawer-menu-item" href="{{ route('my_profile') }}">管理者</a></li>
                             @endif
                             <li><a class="drawer-menu-item" href="{{ route('my_profile') }}">マイページ</a></li>
                             <li><a class="drawer-menu-item" href="{{ route('question_create') }}">質問を投稿</a></li>

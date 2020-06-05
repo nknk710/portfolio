@@ -18,7 +18,7 @@
                 <h2>お問い合わせ一覧</h2>
               </div>
             </div>
-            @if(count($contacts)>0)
+            @if($contacts != null)
 
                 <div class="contact-list">
                     <table class="table table-dark">
