@@ -25,7 +25,7 @@
 
               <div class="question">
                 <div class="quesrion-user user">
-                  @if ($question->user->profile_image !== null)
+                  @if ($question->user->profile_image != null)
                     <img class="profile_img" src="{{ $question->user->profile_image }}">
                   @else
                     <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
@@ -39,7 +39,7 @@
                   <p>{{ $question->body }}</p>
   
                   <div class="post-day">
-                      @if ( $question->best_answer === null )
+                      @if ( $question->best_answer == null )
                         <span class="unsolved">回答受付中</span>
                       @else
                         <span class="solution">解決済み</span>
@@ -54,8 +54,8 @@
               </div>
               
               
-              @if(Auth::id() === $question->user_id || $admin)
-                @if($question->best_answer === null)
+              @if(Auth::id() == $question->user_id || $admin)
+                @if($question->best_answer == null)
                   <form method="POST" action="{{ action('QuestionController@edit') }}">
                     @csrf
                     <input name="id" type="hidden" value="{{ $question->id }}">
@@ -68,10 +68,10 @@
                   <button class="delete-btn">質問を削除する</button>
                 </form>
               @endif
-              @if(Auth::id() !== $question->user_id)
+              @if(Auth::id() != $question->user_id)
                 @guest
                 @else
-                  @if($bookmark === null)
+                  @if($bookmark == null)
                     <form method="POST" action="{{ action('BookmarkController@add') }}">
                       @csrf
                       <input name="id" type="hidden" value="{{ $question->id }}">
@@ -81,8 +81,8 @@
                 @endguest
               @endif
               
-              @if($question->best_answer === null)
-                @if(Auth::id() !== $question->user_id)
+              @if($question->best_answer == null)
+                @if(Auth::id() != $question->user_id)
                   <div class="answer-post">
                     <h3>回答投稿</h3>
                     @guest
@@ -105,17 +105,17 @@
                 </div>
                 
                 @foreach($answers as $answer)
-                  @if($answer->id === $question->best_answer)
+                  @if($answer->id == $question->best_answer)
                   <div class="answer">
 
                     <div class="answer-content">
-                      @if($question->best_answer === $answer->id)
+                      @if($question->best_answer == $answer->id)
                         <span class="best-answer">ベストアンサー</span>
                       @endif
                        <p>{{ $answer->answer }}</p>
                     </div>
                     <div class="answer-user user">
-                      @if ($answer->user->profile_image !== null)
+                      @if ($answer->user->profile_image != null)
                         <img class="profile_img" src="{{ $answer->user->profile_image }}">
                       @else
                         <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
@@ -132,17 +132,17 @@
                 @endforeach
                 
                 @foreach($answers as $answer)
-                  @if($answer->id !== $question->best_answer)
+                  @if($answer->id != $question->best_answer)
                   <div class="answer">
 
                     <div class="answer-content">
-                      @if($question->best_answer === $answer->id)
+                      @if($question->best_answer == $answer->id)
                         <span class="best-answer">ベストアンサー</span>
                       @endif
                        <p>{{ $answer->answer }}</p>
                     </div>
                     <div class="answer-user user">
-                      @if ($answer->user->profile_image !== null)
+                      @if ($answer->user->profile_image != null)
                         <img class="profile_img" src="{{ $answer->user->profile_image }}">
                       @else
                         <img class="profile_img" src="{{ secure_asset('image/ja_2016_01.webp') }}" name="profile_image" alt="">
@@ -154,7 +154,7 @@
                       <p class="created_at">{{ $answer->created_at->format('Y/m/d H:i') }}</p>
                     </div>
 
-                    @if($question->best_answer === null && Auth::id() === $question->user_id)
+                    @if($question->best_answer == null && Auth::id() == $question->user_id)
                       <div class="best-answer-set">
                         <form method="GET" action="{{ action('AnswersController@add') }}">
                           @csrf
@@ -164,7 +164,7 @@
                       </div>
                     @endif
 
-                    @if(Auth::id() === $answer->user->id && $question->best_answer !== $answer->id)
+                    @if(Auth::id() == $answer->user->id && $question->best_answer != $answer->id)
                       <div class="answer-delete">
                         <form method="GET" action="{{ action('AnswersController@delete') }}">
                           @csrf

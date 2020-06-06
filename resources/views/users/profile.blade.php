@@ -15,7 +15,7 @@
         <div class="profile">
           <div class="title">
             <h1>プロフィール</h1>
-            @if(Auth::id() === $profile->id)
+            @if(Auth::id() == $profile->id)
               <a href="{{ route('edit') }}">プロフィールを変更</a> 
             @endif
           </div>
@@ -44,7 +44,7 @@
               <a href="{{ action('QuestionController@private_question', ['id' => $profile->id]) }}">質問一覧</a>
           </div>
           
-          @if(Auth::id() === $profile->id)
+          @if(Auth::id() == $profile->id)
             <div class="bookmark">
               <a href="{{ action('BookmarkController@index') }}">ブックマークした質問一覧</a> 
             </div>

@@ -20,10 +20,7 @@
     
      @yield('page_css')
     
-        <!--<script type="text/javascript" src="js/jQuery-3.3.1.min.js"></script>-->
-        <!--<script type="text/javascript" src="js/front.js"></script>-->
 
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/css/drawer.min.css">

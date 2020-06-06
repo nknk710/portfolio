@@ -59,7 +59,7 @@ Qyou(エンジニアのためのQ＆Aサイト)
                 @foreach($questions as $question)
                     <div class="new-question">
                       <div class="type">
-                        @if ( $question->best_answer === null )
+                        @if ( $question->best_answer == null )
                           <span class="unsolved">回答受付中</span>
                         @else
                           <span class="solution">解決済み</span>
